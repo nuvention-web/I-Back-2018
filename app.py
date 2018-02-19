@@ -8,6 +8,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=2592000)
 #app.secret_key = ''
 api = Api(app)
+CORS(app)
 
 api.add_resource(Quiz, '/quiz')
 
