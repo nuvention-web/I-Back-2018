@@ -102,3 +102,8 @@ ENV/
 
 # test.db
 tests/test.db
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
