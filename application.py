@@ -3,12 +3,12 @@ from flask_cors import CORS
 from flask_restful import Api
 from resources.quiz import Quiz
 
-application = Flask(__name__)
+application = api = Flask(__name__)
 application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=2592000)
 #app.secret_key = ''
-api = Api(application)
+#api = Api(application)
 #CORS(app)
 # print a nice greeting.
 def say_hello(username = "World"):
@@ -43,6 +43,5 @@ if __name__ == '__main__':
     @application.before_first_request
     def create_tables():
         db.create_all()
-    application.debug = True
-    application.run()
+    application.run(host='0.0.0.0',port=8080,debug=True)
 
