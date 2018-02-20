@@ -1,10 +1,12 @@
+import os
+
 from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
 from resources.quiz import Quiz
 
 application = api = Flask(__name__)
-application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+application.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=2592000)
 #app.secret_key = ''
