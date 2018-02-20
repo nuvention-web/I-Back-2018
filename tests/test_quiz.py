@@ -2,7 +2,7 @@ import os, sys
 import unittest
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 basedir = os.path.abspath(os.path.dirname(__file__))
-from application import application as app
+from application import app
 from db import db
 import json
 from datetime import datetime, timedelta

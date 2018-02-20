@@ -1,16 +1,16 @@
 import os
 
 from flask import Flask
-from flask_cors import CORS
+#from flask_cors import CORS
 from flask_restful import Api
 from resources.quiz import Quiz
 
-application = api = Flask(__name__)
-application.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
-application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app = api = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=2592000)
 #app.secret_key = ''
-#api = Api(application)
+api = Api(application)
 #CORS(app)
 # print a nice greeting.
 def say_hello(username = "World"):
@@ -27,12 +27,12 @@ home_link = '<p><a href="/">Back</a></p>\n'
 footer_text = '</body>\n</html>'
 
 # add a rule for the index page.
-application.add_url_rule('/', 'index', (lambda: header_text +
+app.add_url_rule('/', 'index', (lambda: header_text +
     say_hello() + instructions + footer_text))
 
 # add a rule when the page is accessed with a name appended to the site
 # URL.
-application.add_url_rule('/special/<username>', 'hello', (lambda username:
+app.add_url_rule('/special/<username>', 'hello', (lambda username:
     header_text + say_hello(username) + home_link + footer_text))
 
 
@@ -41,9 +41,11 @@ api.add_resource(Quiz, '/quiz')
 
 if __name__ == '__main__':
     from db import db
-    db.init_app(application)
-    @application.before_first_request
-    def create_tables():
-        db.create_all()
-    application.run(host='0.0.0.0',port=8080,debug=True)
+    db.init_app(app)
+    if app.config['DEBUG']:
+        @app.before_first_request
+        def create_tables():
+            db.create_all()
+
+    app.run(port=5000)
 
