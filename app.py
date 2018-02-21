@@ -11,7 +11,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=2592000)
 #app.secret_key = ''
 api = Api(app)
-CORS(app)
+#CORS(app, resources={r"/*": {"origins": "http://perffront.s3-website-us-east-1.amazonaws.com/"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={r"/*": {"origins": ".......perffront...................................."}})
+#CORS(app)
 
 api.add_resource(Quiz, '/quiz')
 @app.route('/')
