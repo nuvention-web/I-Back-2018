@@ -36,49 +36,33 @@ class BasicTests(unittest.TestCase):
     #### helper methods ####
     ########################
     
-    def go_quiz(self, ans1, ans2, ans3, ans4):
+    def go_quiz(self, Q6, Q7):
         return self.app.post(
                 '/quiz',
-                data=dict(ans1=ans1, ans2=ans2, ans3=ans3, ans4=ans4),
+                data=dict(Q6=Q6, Q7=Q7),
                 )
+    
+    # make request to new endline
+    def make_profile(self, Q6, Q7, card, sillage, name, designer, card_image_link, perfume_image_link, buy_link, sound_link):
+        return self.app.post(
+                '/'
+            )
  
     ###############
     #### tests ####
     ###############
 
+    def test_valid_generate_profile(self):
+        valid_response = self.make_profile()
+        self.assertEqual(valid_response.status_code, 201)
+
     def test_valid_quiz(self):
-        valid_response = self.go_quiz(0, 0, 0, 0)
+        valid_response = self.go_quiz(0, 0)
         self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(0, 0, 0, 1)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(0, 0, 1, 0)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(0, 0, 1, 1)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(0, 1, 0, 0)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(0, 1, 0, 1)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(0, 1, 1, 0)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(0, 1, 1, 1)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(1, 0, 0, 0)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(1, 0, 0, 1)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(1, 0, 1, 0)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(1, 0, 1, 1)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(1, 1, 0, 0)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(1, 1, 0, 1)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(1, 1, 1, 0)
-        self.assertEqual(valid_response.status_code, 200)
-        valid_response = self.go_quiz(1, 1, 1, 1)
-        self.assertEqual(valid_response.status_code, 200)
+        
+        
+
+    
 
 if __name__ == "__main__":
     unittest.main()

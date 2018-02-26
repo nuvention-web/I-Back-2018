@@ -1,37 +1,46 @@
 from flask_restful import Resource, reqparse
 
-from controllers.quiz import QuizController
+from controllers.scent_profile import ScentProfileController
 
-class Quiz(Resource):
+class ScentProfile(Resource):
 
     parser = reqparse.RequestParser()
-    parser.add_argument('ans1',
+    parser.add_argument('q6',
             type=int,
             required=True,
             help="This field is required and cannot be left blank."
             )
-    parser.add_argument('ans2',
+    parser.add_argument('q7',
             type=int,
             required=True,
             help="This field is required and cannot be left blank."
             )
-    parser.add_argument('ans3',
-            type=int,
-            required=True,
-            help="This field is required and cannot be left blank."
-            )
-    parser.add_argument('ans4',
-            type=int,
-            required=True,
-            help="This field is required and cannot be left blank."
-            )
+    
+    def get(self, q6, q7):
 
-    def post(self):
-        data = Quiz.parser.parse_args()
-
-        error_message, status, response = QuizController.respond_quiz((data['ans1']), (data['ans2']), (data['ans3']), (data['ans4']))
+        error_message, status, response = ScentProfileController.respond_quiz(q6, q7)
 
         if error_message:
             return {"error_message": error_message}, status
 
         return {"response": response}, status
+
+class ScentProfileAdmin(Resource):
+
+    parser = reqparse.RequestParser()
+    parser.add_argument('q6',
+            type=int,
+            required=True,
+            help="This field is required and cannot be left blank."
+            )
+    parser.add_argument('q7',
+            type=int,
+            required=True,
+            help="This field is required and cannot be left blank."
+            )
+    
+    def get(self, Q6, Q7):
+        if error_message:
+            return {"error_message": error_message}, status
+
+        return {"response": response}, status        

@@ -3,7 +3,7 @@ import os
 from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
-from resources.quiz import Quiz
+from resources.scent_profile import ScentProfile, ScentProfileAdmin
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
@@ -12,14 +12,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #app.secret_key = ''
 api = Api(app)
 #CORS(app, resources={r"/*": {"origins": "http://perffront.s3-website-us-east-1.amazonaws.com/"}})
-CORS(app, resources={r"/*": {"origins": "*"}})
-CORS(app, resources={r"/*": {"origins": ".......perffront...................................."}})
+#CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={r"/quiz/*": {"origins": ".......perffront...................................."}})
 #CORS(app)
 
-api.add_resource(Quiz, '/quiz')
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+api.add_resource(ScentProfile, '/quiz/<int:q6>/<int:q7>')
+api.add_resource(ScentProfileAdmin, '/scent/<int:q6>/<int:q7>')
 
 
 if __name__ == '__main__':
