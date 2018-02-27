@@ -21,6 +21,10 @@ class QuizController():
         except:
             return "Error retrieving scent_profile.", 500, None
 
-        return "", 200, target_scent.children
+        response = []
+        response.append(target_scent)
+        response = response + target_scent.children
+
+        return "", 200, response
 
 
