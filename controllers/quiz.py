@@ -8,7 +8,7 @@ class QuizController():
     def get_perfumes(q6, q7):
         """
         2 input params: answer for q6 and q7
-        3 output params: error message, status code, response
+        4 output params: error message, status code, scent profile, and perfumes
         it serves as the hub for getting perfume object, as there are various ways to access this data
         """
         if not(q6 is 0 or q6 is 1):
@@ -21,10 +21,7 @@ class QuizController():
         except:
             return "Error retrieving scent_profile.", 500, None
 
-        response = []
-        response.append(target_scent)
-        response = response + target_scent.children
-
-        return "", 200, response
+    
+        return "", 200, target_scent, target_scent.children
 
 

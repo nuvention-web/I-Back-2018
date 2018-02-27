@@ -57,7 +57,6 @@ class ScentProfile(Resource):
     def get(self, q6, q7):
 
         error_message, status, response = ScentProfileController.get_scent_profile('qs', q6, q7)
-        
 
         if error_message:
             return {"error_message": error_message}, status
