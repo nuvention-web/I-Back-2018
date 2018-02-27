@@ -46,7 +46,6 @@ class BasicTests(unittest.TestCase):
         return self.app.get(
                 '/scentprofile/' + q6 + '/' + q7
                 )
-
     def make_perfume(self, name, designer, image_lnk, vid_lnk, scent_id):
         return self.app.post(
                 '/perfume/hai',
@@ -56,37 +55,33 @@ class BasicTests(unittest.TestCase):
         return self.app.get(
                 '/perfume/' + name
                 )
+
                 
  
     ###############
     #### tests ####
     ###############
 
-    def test_perfume_generation(self):
-        # create scent_profile
-        scent_profile_create = self.make_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '')
-        self.assertEqual(scent_profile_create.status_code, 201)
-        scent_profile_get = self.get_scent_profile('0', '1')
-        scent_profile_data = json.loads(scent_profile_get.data.decode())
-        self.assertEqual(scent_profile_data['response']['id'], 1)
-        _id = scent_profile_data['response']['id']
-
-        # make perfume
-        valid_post = self.make_perfume('3', 'b', 'c', 'd', str(_id))
+    def test_scent_profile_generation(self):
+        valid_post = self.make_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '')
         self.assertEqual(valid_post.status_code, 201)
 
-        # make bad perfume -wrong scent_id
-        invalid_post = self.make_perfume('3', 'b', 'c', 'd', '8')
-        invalid_post_data = json.loads(invalid_post.data.decode())
-        self.assertEqual(invalid_post.status_code, 400)
-        self.assertEqual(invalid_post_data['error_message'], 'Invalid scent_profile_id.')
 
-        # get perfume
-        valid_get = self.get_perfume('3')
-        self.assertEqual(valid_get.status_code, 200)
+        valid_get = self.get_scent_profile('0', '1')
         valid_get_data = json.loads(valid_get.data.decode())
-        self.assertEqual(valid_get_data['response']['name'], '3')
+        self.assertEqual(valid_get.status_code, 200)
+        self.assertEqual(valid_get_data['response']['tag1'], 'Fresh')
 
+    def test_scent_profile_and_perfume_relationship(self):
+        valid_scent_profile = self.make_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '')
+        self.assertEqual(valid_scent_profile.status_code, 201)
+
+        _id = 1
+        valid_perfume = self.make_perfume('3', 'b', 'c', 'd', str(_id))
+        self.assertEqual(valid_perfume.status_code, 201)
+
+
+        
         
 
     
