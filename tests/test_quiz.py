@@ -56,13 +56,18 @@ class BasicTests(unittest.TestCase):
         return self.app.get(
                 '/perfume/' + name
                 )
+    
+    def quiz_req(self, q6, q7):
+        return self.app.get(
+                '/quiz/' + q6 + '/' + q7,
+                )    
                 
  
     ###############
     #### tests ####
     ###############
 
-    def test_perfume_generation(self):
+    def test_quiz(self):
         # create scent_profile
         scent_profile_create = self.make_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '')
         self.assertEqual(scent_profile_create.status_code, 201)
@@ -75,17 +80,16 @@ class BasicTests(unittest.TestCase):
         valid_post = self.make_perfume('3', 'b', 'c', 'd', str(_id))
         self.assertEqual(valid_post.status_code, 201)
 
-        # make bad perfume -wrong scent_id
-        invalid_post = self.make_perfume('3', 'b', 'c', 'd', '8')
-        invalid_post_data = json.loads(invalid_post.data.decode())
-        self.assertEqual(invalid_post.status_code, 400)
-        self.assertEqual(invalid_post_data['error_message'], 'Invalid scent_profile_id.')
-
         # get perfume
         valid_get = self.get_perfume('3')
         self.assertEqual(valid_get.status_code, 200)
         valid_get_data = json.loads(valid_get.data.decode())
         self.assertEqual(valid_get_data['response']['name'], '3')
+
+        quiz = self.quiz_req('0', '1')
+        self.assertEqual(quiz.status_code, 200)
+        quiz_data = json.loads(quiz.data.decode())
+        self.assertEqual(quiz_data['response'][0]['name'], '3')
 
         
 

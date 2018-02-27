@@ -21,7 +21,7 @@ class PerfumeModel(db.Model):
         self.scent_id = scent_id
 
     def json(self):
-        return {'name': self.name, 'designer': self.designer, 'image_lnk': self.image_lnk, 'vid_lnk': self.vid_lnk, 'scent_id': self.scent_id}
+        return {'id': self.id, 'name': self.name, 'designer': self.designer, 'image_lnk': self.image_lnk, 'vid_lnk': self.vid_lnk, 'scent_id': self.scent_id}
 
     def save_to_db(self):
         db.session.add(self)

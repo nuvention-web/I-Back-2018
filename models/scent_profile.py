@@ -40,6 +40,14 @@ class ScentProfileModel(db.Model):
         return cls.query.filter_by(q6=q6, q7=q7).first()
 
     @classmethod
+    def find_by_q6(cls, q6):
+        return cls.query.filter_by(q6=q6).all()
+
+    @classmethod
+    def find_by_q7(cls, q7):
+        return cls.query.filter_by(q7=q7).all()
+
+    @classmethod
     def filter_by_sillage(cls, sillage):
         return cls.query.filter_by(sillage=sillage).all()
 

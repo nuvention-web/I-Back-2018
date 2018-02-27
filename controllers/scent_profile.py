@@ -16,8 +16,8 @@ class ScentProfileController():
         if not(q6 is 0 or q6 is 1):
             return "q6 can only be 0 or 1", 400, None
 
-        if not(q7 is 0 or q7 is 1):
-            return "q7 can only be 0 or 1", 400, None
+        if not(q7 is 0 or q7 is 1 or q7 is 2 or q7 is 3):
+            return "q7 can only be 0, 1, 2, or 3", 400, None
 
         if tag1 not in categories:
             return "Unexpected category for tag1", 400, None

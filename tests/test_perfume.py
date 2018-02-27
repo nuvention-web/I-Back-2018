@@ -56,6 +56,11 @@ class BasicTests(unittest.TestCase):
         return self.app.get(
                 '/perfume/' + name
                 )
+
+    def quiz_req(self, q6, q7):
+        return self.app.get(
+                '/quiz/' + q6 + '/' + q7,
+                )
                 
  
     ###############
@@ -86,7 +91,6 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(valid_get.status_code, 200)
         valid_get_data = json.loads(valid_get.data.decode())
         self.assertEqual(valid_get_data['response']['name'], '3')
-
         
 
     
