@@ -86,7 +86,8 @@ class BasicTests(unittest.TestCase):
         quiz = self.quiz_req('0', '1')
         self.assertEqual(quiz.status_code, 200)
         quiz_data = json.loads(quiz.data.decode())
-        self.assertEqual(quiz_data['response'][0]['name'], '3')
+        print(quiz_data)
+        self.assertEqual(quiz_data['response']['perfumes'][0]['name'], '3')
 
         
 
