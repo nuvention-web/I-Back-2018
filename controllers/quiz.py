@@ -21,6 +21,8 @@ class QuizController():
         except:
             return "Error retrieving scent_profile.", 500, None, None
 
+        if not target_scent:
+            return "target scent doesn't exist", 400, None, None
     
         return "", 200, target_scent, target_scent.children
 

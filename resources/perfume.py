@@ -52,5 +52,5 @@ class Perfume(Resource):
         if error_message:
             return {"error_message": error_message}, status
 
-        return {"response": response.json()}, status
+        return response.json(), status
 
