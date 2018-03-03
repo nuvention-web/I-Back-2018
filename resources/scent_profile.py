@@ -73,6 +73,17 @@ class ScentProfile(Resource):
 
         return response.json(), status
 
+    def put(self, q6, q7):
+        data = ScentProfile.parser.parse_args()
+
+        error_message, status, response = ScentProfileController.update_scent_profile(data['q6'], data['q7'], data['tag1'], data['tag2'], data['sillage'], data['image_lnk'], data['vid_lnk'], data['start_time'], data['description'])
+        
+        if error_message:
+            return {"error_message": error_message}, status
+
+        return {"message": "Success!"}, status
+
+
 
 class ScentProfileAdmin(Resource):
 

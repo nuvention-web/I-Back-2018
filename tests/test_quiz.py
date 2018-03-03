@@ -45,6 +45,11 @@ class BasicTests(unittest.TestCase):
         return self.app.get(
                 '/scentprofile/' + q6 + '/' + q7
                 )
+    def put_scent_profile(self, q6, q7, tag1, tag2, sillage, image_lnk, vid_lnk, start_time, description):
+        return self.app.put(
+                '/scentprofile/0/0',
+                data = dict(q6=q6, q7=q7, tag1=tag1, tag2=tag2, sillage=sillage, image_lnk=image_lnk, vid_lnk=vid_lnk, start_time=start_time, description=description),
+                )
     def make_perfume(self, name, designer, image_lnk, buy_lnk, scent_id):
         return self.app.post(
                 '/perfume/hai',
@@ -54,11 +59,17 @@ class BasicTests(unittest.TestCase):
         return self.app.get(
                 '/perfume/' + name
                 )
-
+    def put_perfume(self, name, designer, image_lnk, buy_lnk, scent_id):
+        return self.app.put(
+                '/perfume/hai',
+                data = dict(name=name, designer=designer, image_lnk=image_lnk, buy_lnk=buy_lnk, scent_id=scent_id)
+                )
     def quiz_req(self, q6, q7):
         return self.app.get(
                 '/quiz/' + q6 + '/' + q7,
                 )    
+  
+                
 
     ###############
     #### tests ####

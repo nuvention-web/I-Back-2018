@@ -45,6 +45,11 @@ class BasicTests(unittest.TestCase):
         return self.app.get(
                 '/scentprofile/' + q6 + '/' + q7
                 )
+    def put_scent_profile(self, q6, q7, tag1, tag2, sillage, image_lnk, vid_lnk, start_time, description):
+        return self.app.put(
+                '/scentprofile/0/0',
+                data = dict(q6=q6, q7=q7, tag1=tag1, tag2=tag2, sillage=sillage, image_lnk=image_lnk, vid_lnk=vid_lnk, start_time=start_time, description=description),
+                )
     def make_perfume(self, name, designer, image_lnk, buy_lnk, scent_id):
         return self.app.post(
                 '/perfume/hai',
@@ -54,11 +59,16 @@ class BasicTests(unittest.TestCase):
         return self.app.get(
                 '/perfume/' + name
                 )
-
+    def put_perfume(self, name, designer, image_lnk, buy_lnk, scent_id):
+        return self.app.put(
+                '/perfume/hai',
+                data = dict(name=name, designer=designer, image_lnk=image_lnk, buy_lnk=buy_lnk, scent_id=scent_id)
+                )
     def quiz_req(self, q6, q7):
         return self.app.get(
                 '/quiz/' + q6 + '/' + q7,
                 )    
+  
                 
  
     ###############
@@ -93,6 +103,34 @@ class BasicTests(unittest.TestCase):
         valid_get_data = json.loads(valid_get.data.decode())
         self.assertEqual(valid_get_data['name'], '3')
         
+    def test_perfume_update(self):
+        # create scent_profile
+        scent_profile_create = self.make_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '', 0, 'hah')
+        self.assertEqual(scent_profile_create.status_code, 201)
+        scent_profile_get = self.get_scent_profile('0', '1')
+        scent_profile_data = json.loads(scent_profile_get.data.decode())
+        self.assertEqual(scent_profile_data['id'], 1)
+        _id = scent_profile_data['id']
+
+        # make perfume
+        valid_post = self.make_perfume('3', 'b', 'c', 'd', str(_id))
+        if valid_post.status_code is not 201:
+            post_data = json.loads(valid_post.data.decode())
+            print(post_data)
+        self.assertEqual(valid_post.status_code, 201)
+
+        # put perfume
+        valid_put = self.put_perfume('3', 'b', 'd', 'd', str(_id))
+        if valid_put.status_code is not 200:
+            put_data = json.loads(valid_post.data.decode())
+            print(put_data)
+        self.assertEqual(valid_put.status_code, 200)
+
+        # get perfume
+        valid_get = self.get_perfume('3')
+        self.assertEqual(valid_get.status_code, 200)
+        valid_get_data = json.loads(valid_get.data.decode())
+        self.assertEqual(valid_get_data['image_lnk'], 'd')
 
     
 

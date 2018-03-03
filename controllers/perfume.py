@@ -39,7 +39,39 @@ class PerfumeController():
             print ("Error in saving perfume object to db")
             return "Error saving model", 500, None
 
-        return "", 201, new_perfume 
+        return "", 201, None 
+
+    def update_perfume(name, designer, image_lnk, buy_lnk, scent_id):
+        """
+        5 input params: stuff in a scent profile.
+        3 output: error message, status code, response object(none)
+
+        it param checks and then generates a perfume object
+        """
+
+        #valid scent_id for update
+        if not ScentProfileModel.find_by_id(scent_id):
+            return "Invalid scent_profile_id.", 400, None
+        
+        if not PerfumeModel.find_by_name(name):
+            return "Perfume does not exists.", 400, None
+        
+        target_perfume = PerfumeModel.find_by_name(name)
+        
+        target_perfume.name = name
+        target_perfume.designer = designer
+        target_perfume.image_lnk = image_lnk
+        target_perfume.buy_lnk = buy_lnk
+        target_perfume.scent_id = scent_id
+
+        try :
+            target_perfume.save_to_db()
+            
+        except:
+            print ("Error in saving perfume object to db")
+            return "Error saving model", 500, None
+
+        return "", 200, None
 
     def get_perfume(mode, inp1):
         """
@@ -68,4 +100,6 @@ class PerfumeController():
             return "No such name found", 400, None
 
         return "", 200, target
+
+        
     

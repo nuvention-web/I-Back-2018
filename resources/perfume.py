@@ -54,3 +54,13 @@ class Perfume(Resource):
 
         return response.json(), status
 
+    def put(self, name):
+        data = Perfume.parser.parse_args()
+
+        error_message, status, response = PerfumeController.update_perfume(data['name'], data['designer'], data['image_lnk'], data['buy_lnk'], data['scent_id'])
+
+        if error_message:
+            return {"error_message": error_message}, status
+
+        return {"message": "Success!"}, status
+

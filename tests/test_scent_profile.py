@@ -46,6 +46,11 @@ class BasicTests(unittest.TestCase):
         return self.app.get(
                 '/scentprofile/' + q6 + '/' + q7
                 )
+    def put_scent_profile(self, q6, q7, tag1, tag2, sillage, image_lnk, vid_lnk, start_time, description):
+        return self.app.put(
+                '/scentprofile/0/0',
+                data = dict(q6=q6, q7=q7, tag1=tag1, tag2=tag2, sillage=sillage, image_lnk=image_lnk, vid_lnk=vid_lnk, start_time=start_time, description=description),
+                )
     def make_perfume(self, name, designer, image_lnk, vid_lnk, scent_id):
         return self.app.post(
                 '/perfume/hai',
@@ -78,22 +83,22 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(scent_profile_data['id'], 1)
         
 
-    def test_scent_profile_and_perfume_relationship(self):
-        """
-        Not Done
-        """
-        valid_scent_profile = self.make_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '', 0, "hah")
-        self.assertEqual(valid_scent_profile.status_code, 201)
+    def test_scent_profile_update(self):
+        # create scent_profile
+        scent_profile_create = self.make_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '', 0, "hah")
+        self.assertEqual(scent_profile_create.status_code, 201)
         scent_profile_get = self.get_scent_profile('0', '1')
-        valid_scent_profile_data = json.loads(scent_profile_get.data.decode())
-        _id = valid_scent_profile_data['id']
-        """
-        valid_perfume = self.make_perfume('3', 'b', 'c', 'd', str(_id))
-        self.assertEqual(valid_perfume.status_code, 201)
-        """
+        scent_profile_data = json.loads(scent_profile_get.data.decode())
+        self.assertEqual(scent_profile_get.status_code, 200)
+        self.assertEqual(scent_profile_data['id'], 1)
 
-
-        
+        # update scent_profile
+        scent_profile_update = self.put_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '', 0, "abcd")
+        self.assertEqual(scent_profile_update.status_code, 200)
+        scent_profile_get = self.get_scent_profile('0', '1')
+        scent_profile_data = json.loads(scent_profile_get.data.decode())
+        self.assertEqual(scent_profile_get.status_code, 200)
+        self.assertEqual(scent_profile_data['scent_description'], "abcd")
         
 
     

@@ -55,6 +55,42 @@ class ScentProfileController():
 
         return "", 201, None
 
+
+    def update_scent_profile(q6, q7, tag1, tag2, sillage, image_lnk, vid_lnk, start_time, description):
+        categories = ["Fresh", "Floral", "Spicy", "Woody"]
+
+        if not(q6 is 0 or q6 is 1):
+            return "q6 can only be 0 or 1", 400, None
+
+        if not(q7 is 0 or q7 is 1 or q7 is 2 or q7 is 3):
+            return "q7 can only be 0, 1, 2, or 3", 400, None
+
+        if not ScentProfileModel.find_by_tags_sillage(tag1, tag2, sillage):
+            return "Scent Profile with the mentioned tag doesn't exists.", 400, None
+
+        try:
+
+            target_scent_profile = ScentProfileModel.find_by_tags_sillage(tag1, tag2, sillage)
+        except:
+            return "Error getting scent profile", 500, None
+        
+        # update info
+        target_scent_profile.q6 = q6
+        target_scent_profile.q7 = q7
+        target_scent_profile.tag1 = tag1
+        target_scent_profile.tag2 = tag2
+        target_scent_profile.sillage = sillage
+        target_scent_profile.image_lnk = image_lnk
+        target_scent_profile.vid_lnk = vid_lnk
+        target_scent_profile.start_time = start_time
+        target_scent_profile.description = description
+
+        # commit change
+        target_scent_profile.save_to_db()
+
+        return None, 200, None
+
+
     def get_scent_profile(mode, inp1, inp2):
         """
         3 input params: mode of getting, input1(mandatory), and input2(optional)
@@ -82,4 +118,5 @@ class ScentProfileController():
 
         return "", 200, target
 
+    
 
