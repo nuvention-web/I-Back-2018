@@ -15,4 +15,3 @@ class Quiz(Resource):
             return {"error_message": error_message}, status
 
         return {"response": {"scent_profile": scent_profile.json(), "perfumes": list(map(lambda x: x.json() if x else None, perfumes))}}, status
-

@@ -36,21 +36,19 @@ class BasicTests(unittest.TestCase):
     #### helper methods ####
     ########################
     
-    # make request to new endline
-    def make_scent_profile(self, q6, q7, tag1, tag2, sillage, image_lnk, sound_lnk):
+    def make_scent_profile(self, q6, q7, tag1, tag2, sillage, image_lnk, vid_lnk, start_time, description):
         return self.app.post(
                 '/scentprofile/0/0',
-                data = dict(q6=q6, q7=q7, tag1=tag1, tag2=tag2, sillage=sillage, image_lnk=image_lnk, sound_lnk=sound_lnk),
+                data = dict(q6=q6, q7=q7, tag1=tag1, tag2=tag2, sillage=sillage, image_lnk=image_lnk, vid_lnk=vid_lnk, start_time=start_time, description=description),
                 )
     def get_scent_profile(self, q6, q7):
         return self.app.get(
                 '/scentprofile/' + q6 + '/' + q7
                 )
-
-    def make_perfume(self, name, designer, image_lnk, vid_lnk, scent_id):
+    def make_perfume(self, name, designer, image_lnk, buy_lnk, scent_id):
         return self.app.post(
                 '/perfume/hai',
-                data = dict(name=name, designer=designer, image_lnk=image_lnk, vid_lnk=vid_lnk, scent_id=scent_id)
+                data = dict(name=name, designer=designer, image_lnk=image_lnk, buy_lnk=buy_lnk, scent_id=scent_id)
                 )
     def get_perfume(self, name):
         return self.app.get(
@@ -60,7 +58,7 @@ class BasicTests(unittest.TestCase):
     def quiz_req(self, q6, q7):
         return self.app.get(
                 '/quiz/' + q6 + '/' + q7,
-                )
+                )    
                 
  
     ###############
@@ -69,7 +67,7 @@ class BasicTests(unittest.TestCase):
 
     def test_perfume_generation(self):
         # create scent_profile
-        scent_profile_create = self.make_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '')
+        scent_profile_create = self.make_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '', 0, 'hah')
         self.assertEqual(scent_profile_create.status_code, 201)
         scent_profile_get = self.get_scent_profile('0', '1')
         scent_profile_data = json.loads(scent_profile_get.data.decode())
@@ -78,6 +76,9 @@ class BasicTests(unittest.TestCase):
 
         # make perfume
         valid_post = self.make_perfume('3', 'b', 'c', 'd', str(_id))
+        if valid_post.status_code is not 201:
+            post_data = json.loads(valid_post.data.decode())
+            print(post_data)
         self.assertEqual(valid_post.status_code, 201)
 
         # make bad perfume -wrong scent_id

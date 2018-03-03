@@ -10,21 +10,28 @@ class PerfumeModel(db.Model):
     name = db.Column(db.String(200))
     designer = db.Column(db.String(200))
     image_lnk = db.Column(db.String(248))
-    vid_lnk = db.Column(db.String(248))
+    buy_lnk = db.Column(db.String(248))
     scent_id = db.Column(db.Integer, db.ForeignKey(ScentProfileModel.id))
 
-    def __init__(self, name, designer, image_lnk, vid_lnk, scent_id):
+    def __init__(self, name, designer, image_lnk, buy_lnk, scent_id):
         self.name = name 
         self.designer = designer 
         self.image_lnk = image_lnk
-        self.vid_lnk = vid_lnk
+        self.buy_lnk = buy_lnk
         self.scent_id = scent_id
+    
+    def json_debug(self):
+        return {'id': self.id, 'name': self.name, 'designer': self.designer, 'image_lnk': self.image_lnk, 'buy_lnk': self.buy_lnk, 'scent_id': self.scent_id}
 
     def json(self):
-        return {'id': self.id, 'name': self.name, 'designer': self.designer, 'image_lnk': self.image_lnk, 'vid_lnk': self.vid_lnk, 'scent_id': self.scent_id}
+        return {'id': self.id, 'name': self.name, 'designer': self.designer, 'image_lnk': self.image_lnk, 'buy_lnk': self.buy_lnk}
 
     def save_to_db(self):
         db.session.add(self)
+        db.session.commit()
+
+    def delete_from_db(self):
+        db.session.delete(self)
         db.session.commit()
 
     @classmethod

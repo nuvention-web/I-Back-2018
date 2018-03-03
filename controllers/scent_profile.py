@@ -4,7 +4,7 @@ from werkzeug.security import safe_str_cmp
 
 class ScentProfileController():
 
-    def make_scent_profile(q6, q7, tag1, tag2, sillage, image_lnk, sound_lnk):
+    def make_scent_profile(q6, q7, tag1, tag2, sillage, image_lnk, vid_lnk, start_time, description):
         """
         7 input params: stuff in a scent profile.
         3 output: error message, status code, response object(none)
@@ -19,8 +19,12 @@ class ScentProfileController():
         if not(q7 is 0 or q7 is 1 or q7 is 2 or q7 is 3):
             return "q7 can only be 0, 1, 2, or 3", 400, None
 
+        """
+        Not known yet.
+
         if tag1 not in categories:
             return "Unexpected category for tag1", 400, None
+        """
 
         #if tag2 not in categories:
         #    return "Unexpected category for tag2", 400, None
@@ -34,7 +38,8 @@ class ScentProfileController():
         """
 
         try:
-            new_scent_profile = ScentProfileModel(q6, q7, tag1, tag2, sillage, image_lnk, sound_lnk)
+            new_scent_profile = ScentProfileModel(q6, q7, tag1, tag2, sillage, image_lnk, vid_lnk, start_time, description)
+
         except:
             print("Error in creating scent_profile object")
             return "Error making model", 500, None

@@ -5,7 +5,7 @@ from werkzeug.security import safe_str_cmp
 
 class PerfumeController():
 
-    def make_perfume(name, designer, image_lnk, vid_lnk, scent_id):
+    def make_perfume(name, designer, image_lnk, buy_lnk, scent_id):
         """
         5 input params: stuff in a scent profile.
         3 output: error message, status code, response object(none)
@@ -15,6 +15,9 @@ class PerfumeController():
         #valid scent_id
         if not ScentProfileModel.find_by_id(scent_id):
             return "Invalid scent_profile_id.", 400, None
+        
+        if PerfumeModel.find_by_name(name):
+            return "Perfume already exists.", 400, None
 
         """
         need a way to validate image_lnk inputs
@@ -25,7 +28,7 @@ class PerfumeController():
         """
 
         try:
-            new_perfume = PerfumeModel(name, designer, image_lnk, vid_lnk, scent_id)
+            new_perfume = PerfumeModel(name, designer, image_lnk, buy_lnk, scent_id)
         except:
             print("Error in creating perfume object")
             return "Error making model", 500, None
@@ -60,6 +63,9 @@ class PerfumeController():
             target = PerfumeModel.find_by_name(name)
         except:
             return "Error getting by name", 500, None
+
+        if not target: 
+            return "No such name found", 400, None
 
         return "", 200, target
     

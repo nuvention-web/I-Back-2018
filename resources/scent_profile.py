@@ -38,7 +38,17 @@ class ScentProfile(Resource):
             required=True,
             help="This field is required and cannot be left blank."
             )
-    parser.add_argument('sound_lnk',
+    parser.add_argument('vid_lnk',
+            type=str,
+            required=True,
+            help="This field is required and cannot be left blank."
+            )
+    parser.add_argument('start_time',
+            type=int,
+            required=True,
+            help="This field is required and cannot be left blank."
+            )
+    parser.add_argument('description',
             type=str,
             required=True,
             help="This field is required and cannot be left blank."
@@ -47,7 +57,7 @@ class ScentProfile(Resource):
     def post(self, q6, q7):
         data = ScentProfile.parser.parse_args()
 
-        error_message, status, response = ScentProfileController.make_scent_profile(data['q6'], data['q7'], data['tag1'], data['tag2'], data['sillage'], data['image_lnk'], data['sound_lnk'])
+        error_message, status, response = ScentProfileController.make_scent_profile(data['q6'], data['q7'], data['tag1'], data['tag2'], data['sillage'], data['image_lnk'], data['vid_lnk'], data['start_time'], data['description'])
 
         if error_message:
             return {"error_message": error_message}, status

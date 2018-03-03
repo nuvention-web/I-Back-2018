@@ -23,7 +23,7 @@ class Perfume(Resource):
             required=True,
             help="This field is required and cannot be left blank."
             )
-    parser.add_argument('vid_lnk',
+    parser.add_argument('buy_lnk',
             type=str,
             required=True,
             help="This field is required and cannot be left blank."
@@ -38,7 +38,7 @@ class Perfume(Resource):
     def post(self, name):
         data = Perfume.parser.parse_args()
 
-        error_message, status, response = PerfumeController.make_perfume(data['name'], data['designer'], data['image_lnk'], data['vid_lnk'], data['scent_id'])
+        error_message, status, response = PerfumeController.make_perfume(data['name'], data['designer'], data['image_lnk'], data['buy_lnk'], data['scent_id'])
 
         if error_message:
             return {"error_message": error_message}, status
