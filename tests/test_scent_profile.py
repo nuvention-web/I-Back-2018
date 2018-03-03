@@ -75,7 +75,7 @@ class BasicTests(unittest.TestCase):
         scent_profile_get = self.get_scent_profile('0', '1')
         scent_profile_data = json.loads(scent_profile_get.data.decode())
         self.assertEqual(scent_profile_get.status_code, 200)
-        self.assertEqual(scent_profile_data['response']['id'], 1)
+        self.assertEqual(scent_profile_data['id'], 1)
         
 
     def test_scent_profile_and_perfume_relationship(self):
@@ -86,7 +86,7 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(valid_scent_profile.status_code, 201)
         scent_profile_get = self.get_scent_profile('0', '1')
         valid_scent_profile_data = json.loads(scent_profile_get.data.decode())
-        _id = valid_scent_profile_data['response']['id']
+        _id = valid_scent_profile_data['id']
         """
         valid_perfume = self.make_perfume('3', 'b', 'c', 'd', str(_id))
         self.assertEqual(valid_perfume.status_code, 201)

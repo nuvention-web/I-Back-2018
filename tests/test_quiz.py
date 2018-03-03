@@ -70,8 +70,8 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(scent_profile_create.status_code, 201)
         scent_profile_get = self.get_scent_profile('0', '1')
         scent_profile_data = json.loads(scent_profile_get.data.decode())
-        self.assertEqual(scent_profile_data['response']['id'], 1)
-        _id = scent_profile_data['response']['id']
+        self.assertEqual(scent_profile_data['id'], 1)
+        _id = scent_profile_data['id']
 
         # make perfume
         valid_post = self.make_perfume('3', 'b', 'c', 'd', str(_id))
@@ -81,12 +81,12 @@ class BasicTests(unittest.TestCase):
         valid_get = self.get_perfume('3')
         self.assertEqual(valid_get.status_code, 200)
         valid_get_data = json.loads(valid_get.data.decode())
-        self.assertEqual(valid_get_data['response']['name'], '3')
+        self.assertEqual(valid_get_data['name'], '3')
 
         quiz = self.quiz_req('0', '1')
         self.assertEqual(quiz.status_code, 200)
         quiz_data = json.loads(quiz.data.decode())
-        self.assertEqual(quiz_data['response']['perfumes'][0]['name'], '3')
+        self.assertEqual(quiz_data['perfumes'][0]['name'], '3')
 
         
 
