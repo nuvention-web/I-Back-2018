@@ -19,6 +19,9 @@ class ScentProfileController():
         if not(q7 is 0 or q7 is 1 or q7 is 2 or q7 is 3):
             return "q7 can only be 0, 1, 2, or 3", 400, None
 
+        if ScentProfileModel.find_by_tags_sillage(tag1, tag2, sillage):
+            return "Scent Profile with the mentioned tag already exists.", 400, None
+
         """
         Not known yet.
 

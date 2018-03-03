@@ -71,6 +71,6 @@ class ScentProfileModel(db.Model):
         return cls.query.filter_by(tag2=tag2).all()
 
     @classmethod
-    def find_by_tags(cls, tag1, tag2):
-        return cls.query.filter_by(tag1=tag1).filter_by(tag2=tag2).first()
+    def find_by_tags_sillage(cls, tag1, tag2, sillage):
+        return cls.query.filter_by(tag1=tag1).filter_by(tag2=tag2).filter_by(sillage=sillage).first()
     
