@@ -17,6 +17,11 @@ api = Api(app)
 CORS(app, resources={r"/quiz/*": {"origins": "\bperffront\b"}})
 #CORS(app)
 
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
+
+
 api.add_resource(ScentProfile, '/scentprofile/<int:q6>/<int:q7>')
 api.add_resource(Perfume, '/perfume/<string:name>')
 api.add_resource(Quiz, '/quiz/<int:q6>/<int:q7>')
