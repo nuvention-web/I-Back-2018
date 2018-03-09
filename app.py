@@ -14,7 +14,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #app.secret_key = ''
 api = Api(app)
 #CORS(app, resources={r"/*": {"origins": "http://perffront.s3-website-us-east-1.amazonaws.com/"}})
-#CORS(app, resources={r"/quiz/*": {"origins": ".......perffront...................................."}})
+CORS(app, resources={r"/quiz/*": {"origins": "\bperffront\b"}})
 #CORS(app)
 
 api.add_resource(ScentProfile, '/scentprofile/<int:q6>/<int:q7>')
