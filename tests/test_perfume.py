@@ -7,6 +7,8 @@ from db import db
 import json
 from datetime import datetime, timedelta
 from freezegun import freeze_time
+
+from helper_tests import helper
  
 TEST_DB = 'test.db'
  
@@ -31,43 +33,6 @@ class BasicTests(unittest.TestCase):
     # executed after each test
     def tearDown(self):
         pass
-
-    ########################
-    #### helper methods ####
-    ########################
-    
-    def make_scent_profile(self, q6, q7, tag1, tag2, sillage, image_lnk, vid_lnk, start_time, description):
-        return self.app.post(
-                '/scentprofile/0/0',
-                data = dict(q6=q6, q7=q7, tag1=tag1, tag2=tag2, sillage=sillage, image_lnk=image_lnk, vid_lnk=vid_lnk, start_time=start_time, description=description),
-                )
-    def get_scent_profile(self, q6, q7):
-        return self.app.get(
-                '/scentprofile/' + q6 + '/' + q7
-                )
-    def put_scent_profile(self, q6, q7, tag1, tag2, sillage, image_lnk, vid_lnk, start_time, description):
-        return self.app.put(
-                '/scentprofile/0/0',
-                data = dict(q6=q6, q7=q7, tag1=tag1, tag2=tag2, sillage=sillage, image_lnk=image_lnk, vid_lnk=vid_lnk, start_time=start_time, description=description),
-                )
-    def make_perfume(self, name, designer, image_lnk, buy_lnk, scent_id):
-        return self.app.post(
-                '/perfume/hai',
-                data = dict(name=name, designer=designer, image_lnk=image_lnk, buy_lnk=buy_lnk, scent_id=scent_id)
-                )
-    def get_perfume(self, name):
-        return self.app.get(
-                '/perfume/' + name
-                )
-    def put_perfume(self, name, designer, image_lnk, buy_lnk, scent_id):
-        return self.app.put(
-                '/perfume/hai',
-                data = dict(name=name, designer=designer, image_lnk=image_lnk, buy_lnk=buy_lnk, scent_id=scent_id)
-                )
-    def quiz_req(self, q6, q7):
-        return self.app.get(
-                '/quiz/' + q6 + '/' + q7,
-                )    
   
                 
  
@@ -77,63 +42,62 @@ class BasicTests(unittest.TestCase):
 
     def test_perfume_generation(self):
         # create scent_profile
-        scent_profile_create = self.make_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '', 0, 'hah')
+        scent_profile_create = helper.make_scent_profile(self, 0, 1, 'Fresh', '', 'Light', 'aha', '', 0, 'hah')
         self.assertEqual(scent_profile_create.status_code, 201)
-        scent_profile_get = self.get_scent_profile('0', '1')
+        scent_profile_get = helper.get_scent_profile(self, '0', '1')
         scent_profile_data = json.loads(scent_profile_get.data.decode())
         self.assertEqual(scent_profile_data['id'], 1)
         _id = scent_profile_data['id']
 
         # make perfume
-        valid_post = self.make_perfume('3', 'b', 'c', 'd', str(_id))
+        valid_post = helper.make_perfume(self, '3', 'b', 'c', 'd', str(_id))
         if valid_post.status_code is not 201:
             post_data = json.loads(valid_post.data.decode())
             print(post_data)
         self.assertEqual(valid_post.status_code, 201)
 
         # make bad perfume -wrong scent_id
-        invalid_post = self.make_perfume('3', 'b', 'c', 'd', '8')
+        invalid_post = helper.make_perfume(self, '3', 'b', 'c', 'd', '8')
         invalid_post_data = json.loads(invalid_post.data.decode())
         self.assertEqual(invalid_post.status_code, 400)
         self.assertEqual(invalid_post_data['error_message'], 'Invalid scent_profile_id.')
 
         # get perfume
-        valid_get = self.get_perfume('3')
+        valid_get = helper.get_perfume(self, '3')
         self.assertEqual(valid_get.status_code, 200)
         valid_get_data = json.loads(valid_get.data.decode())
         self.assertEqual(valid_get_data['name'], '3')
         
+        
     def test_perfume_update(self):
         # create scent_profile
-        scent_profile_create = self.make_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '', 0, 'hah')
+        scent_profile_create = helper.make_scent_profile(self, 0, 1, 'Fresh', '', 'Light', 'aha', '', 0, 'hah')
         self.assertEqual(scent_profile_create.status_code, 201)
-        scent_profile_get = self.get_scent_profile('0', '1')
+        scent_profile_get = helper.get_scent_profile(self, '0', '1')
         scent_profile_data = json.loads(scent_profile_get.data.decode())
         self.assertEqual(scent_profile_data['id'], 1)
         _id = scent_profile_data['id']
 
         # make perfume
-        valid_post = self.make_perfume('3', 'b', 'c', 'd', str(_id))
+        valid_post = helper.make_perfume(self, '3', 'b', 'c', 'd', str(_id))
         if valid_post.status_code is not 201:
             post_data = json.loads(valid_post.data.decode())
             print(post_data)
         self.assertEqual(valid_post.status_code, 201)
 
         # put perfume
-        valid_put = self.put_perfume('3', 'b', 'd', 'd', str(_id))
+        valid_put = helper.put_perfume(self, '3', 'b', 'd', 'd', str(_id))
         if valid_put.status_code is not 200:
             put_data = json.loads(valid_post.data.decode())
             print(put_data)
         self.assertEqual(valid_put.status_code, 200)
 
         # get perfume
-        valid_get = self.get_perfume('3')
+        valid_get = helper.get_perfume(self, '3')
         self.assertEqual(valid_get.status_code, 200)
         valid_get_data = json.loads(valid_get.data.decode())
         self.assertEqual(valid_get_data['image_lnk'], 'd')
 
-    
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -7,6 +7,8 @@ from db import db
 import json
 from datetime import datetime, timedelta
 from freezegun import freeze_time
+
+from helper_tests import helper
  
 TEST_DB = 'test.db'
  
@@ -31,41 +33,6 @@ class BasicTests(unittest.TestCase):
     # executed after each test
     def tearDown(self):
         pass
-
-    ########################
-    #### helper methods ####
-    ########################
-    
-
-    def make_scent_profile(self, q6, q7, tag1, tag2, sillage, image_lnk, vid_lnk, start_time, description):
-        return self.app.post(
-                '/scentprofile/0/0',
-                data = dict(q6=q6, q7=q7, tag1=tag1, tag2=tag2, sillage=sillage, image_lnk=image_lnk, vid_lnk=vid_lnk, start_time=start_time, description=description),
-                )
-    def get_scent_profile(self, q6, q7):
-        return self.app.get(
-                '/scentprofile/' + q6 + '/' + q7
-                )
-    def put_scent_profile(self, q6, q7, tag1, tag2, sillage, image_lnk, vid_lnk, start_time, description):
-        return self.app.put(
-                '/scentprofile/0/0',
-                data = dict(q6=q6, q7=q7, tag1=tag1, tag2=tag2, sillage=sillage, image_lnk=image_lnk, vid_lnk=vid_lnk, start_time=start_time, description=description),
-                )
-    def make_perfume(self, name, designer, image_lnk, vid_lnk, scent_id):
-        return self.app.post(
-                '/perfume/hai',
-                data = dict(name=name, designer=designer, image_lnk=image_lnk, vid_lnk=vid_lnk, scent_id=scent_id)
-                )
-    def get_perfume(self, name):
-        return self.app.get(
-                '/perfume/' + name
-                )
-
-    def quiz_req(self, q6, q7):
-        return self.app.get(
-                '/quiz/' + q6 + '/' + q7,
-                )    
-
                 
  
     ###############
@@ -75,9 +42,9 @@ class BasicTests(unittest.TestCase):
     def test_scent_profile_generation(self):
 
         # create scent_profile
-        scent_profile_create = self.make_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '', 0, "hah")
+        scent_profile_create = helper.make_scent_profile(self, 0, 1, 'Fresh', '', 'Light', 'aha', '', 0, "hah")
         self.assertEqual(scent_profile_create.status_code, 201)
-        scent_profile_get = self.get_scent_profile('0', '1')
+        scent_profile_get = helper.get_scent_profile(self, '0', '1')
         scent_profile_data = json.loads(scent_profile_get.data.decode())
         self.assertEqual(scent_profile_get.status_code, 200)
         self.assertEqual(scent_profile_data['id'], 1)
@@ -85,17 +52,17 @@ class BasicTests(unittest.TestCase):
 
     def test_scent_profile_update(self):
         # create scent_profile
-        scent_profile_create = self.make_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '', 0, "hah")
+        scent_profile_create = helper.make_scent_profile(self, 0, 1, 'Fresh', '', 'Light', 'aha', '', 0, "hah")
         self.assertEqual(scent_profile_create.status_code, 201)
-        scent_profile_get = self.get_scent_profile('0', '1')
+        scent_profile_get = helper.get_scent_profile(self, '0', '1')
         scent_profile_data = json.loads(scent_profile_get.data.decode())
         self.assertEqual(scent_profile_get.status_code, 200)
         self.assertEqual(scent_profile_data['id'], 1)
 
         # update scent_profile
-        scent_profile_update = self.put_scent_profile(0, 1, 'Fresh', '', 'Light', 'aha', '', 0, "abcd")
+        scent_profile_update = helper.put_scent_profile(self, 0, 1, 'Fresh', '', 'Light', 'aha', '', 0, "abcd")
         self.assertEqual(scent_profile_update.status_code, 200)
-        scent_profile_get = self.get_scent_profile('0', '1')
+        scent_profile_get = helper.get_scent_profile(self, '0', '1')
         scent_profile_data = json.loads(scent_profile_get.data.decode())
         self.assertEqual(scent_profile_get.status_code, 200)
         self.assertEqual(scent_profile_data['scent_description'], "abcd")
@@ -105,4 +72,3 @@ class BasicTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
