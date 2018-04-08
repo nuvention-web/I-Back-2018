@@ -5,15 +5,15 @@ from werkzeug.security import safe_str_cmp
 
 class PerfumeController():
 
-    def make_perfume(name, designer, image_lnk, buy_lnk, scent_id):
+    def make_perfume(name, designer, image_lnk, buy_lnk, scent_profile_id):
         """
         5 input params: stuff in a scent profile.
         3 output: error message, status code, response object(none)
 
         it param checks and then generates a perfume object
         """
-        #valid scent_id
-        if not ScentProfileModel.find_by_id(scent_id):
+        #valid scent_profile_id
+        if not ScentProfileModel.find_by_id(scent_profile_id):
             return "Invalid scent_profile_id.", 400, None
         
         if PerfumeModel.find_by_name(name):
@@ -28,7 +28,7 @@ class PerfumeController():
         """
 
         try:
-            new_perfume = PerfumeModel(name, designer, image_lnk, buy_lnk, scent_id)
+            new_perfume = PerfumeModel(name, designer, image_lnk, buy_lnk, scent_profile_id)
         except:
             print("Error in creating perfume object")
             return "Error making model", 500, None
@@ -41,7 +41,7 @@ class PerfumeController():
 
         return "", 201, None 
 
-    def update_perfume(name, designer, image_lnk, buy_lnk, scent_id):
+    def update_perfume(name, designer, image_lnk, buy_lnk, scent_profile_id):
         """
         5 input params: stuff in a scent profile.
         3 output: error message, status code, response object(none)
@@ -49,8 +49,8 @@ class PerfumeController():
         it param checks and then generates a perfume object
         """
 
-        #valid scent_id for update
-        if not ScentProfileModel.find_by_id(scent_id):
+        #valid scent_profile_id for update
+        if not ScentProfileModel.find_by_id(scent_profile_id):
             return "Invalid scent_profile_id.", 400, None
         
         if not PerfumeModel.find_by_name(name):
@@ -62,7 +62,7 @@ class PerfumeController():
         target_perfume.designer = designer
         target_perfume.image_lnk = image_lnk
         target_perfume.buy_lnk = buy_lnk
-        target_perfume.scent_id = scent_id
+        target_perfume.scent_profile_id = scent_profile_id
 
         try :
             target_perfume.save_to_db()

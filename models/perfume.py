@@ -11,17 +11,17 @@ class PerfumeModel(db.Model):
     designer = db.Column(db.String(200))
     image_lnk = db.Column(db.String(248))
     buy_lnk = db.Column(db.String(248))
-    scent_id = db.Column(db.Integer, db.ForeignKey(ScentProfileModel.id))
+    scent_profile_id = db.Column(db.Integer, db.ForeignKey(ScentProfileModel.id))
 
-    def __init__(self, name, designer, image_lnk, buy_lnk, scent_id):
+    def __init__(self, name, designer, image_lnk, buy_lnk, scent_profile_id):
         self.name = name 
         self.designer = designer 
         self.image_lnk = image_lnk
         self.buy_lnk = buy_lnk
-        self.scent_id = scent_id
+        self.scent_profile_id = scent_profile_id
     
     def json_debug(self):
-        return {'id': self.id, 'name': self.name, 'designer': self.designer, 'image_lnk': self.image_lnk, 'buy_lnk': self.buy_lnk, 'scent_id': self.scent_id}
+        return {'id': self.id, 'name': self.name, 'designer': self.designer, 'image_lnk': self.image_lnk, 'buy_lnk': self.buy_lnk, 'scent_profile_id': self.scent_profile_id}
 
     def json(self):
         return {'id': self.id, 'name': self.name, 'designer': self.designer, 'image_lnk': self.image_lnk, 'buy_lnk': self.buy_lnk}
@@ -47,6 +47,6 @@ class PerfumeModel(db.Model):
         return cls.query.filter_by(designer=designer).all()
 
     @classmethod
-    def filter_by_scent_id(cls, scent_id):
-        return cls.query.filter_by(scent_id=scent_id).all()
+    def filter_by_scent_profile_id(cls, scent_profile_id):
+        return cls.query.filter_by(scent_profile_id=scent_profile_id).all()
 

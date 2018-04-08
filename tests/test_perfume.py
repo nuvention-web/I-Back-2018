@@ -56,7 +56,7 @@ class BasicTests(unittest.TestCase):
             print(post_data)
         self.assertEqual(valid_post.status_code, 201)
 
-        # make bad perfume -wrong scent_id
+        # make bad perfume -wrong scent_profile_id
         invalid_post = helper.make_perfume(self, '3', 'b', 'c', 'd', '8')
         invalid_post_data = json.loads(invalid_post.data.decode())
         self.assertEqual(invalid_post.status_code, 400)
