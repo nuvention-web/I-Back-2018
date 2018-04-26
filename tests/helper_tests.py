@@ -1,33 +1,36 @@
+import json
+
 class helper():
-    def make_scent_profile(inst, q6, q7, tag1, tag2, sillage, image_lnk, vid_lnk, start_time, description):
+
+    @classmethod
+    def make_card(cls, inst, name, accord, image_lnk, vid_lnk, start_time, description):
         return inst.app.post(
-                '/scentprofile/0/0',
-                data = dict(q6=q6, q7=q7, tag1=tag1, tag2=tag2, sillage=sillage, image_lnk=image_lnk, vid_lnk=vid_lnk, start_time=start_time, description=description),
+                    '/card/all',
+                    data = dict(name=name, accord=accord, image_lnk=image_lnk, vid_lnk=vid_lnk, start_time=start_time, description=description)
                 )
-    def get_scent_profile(inst, q6, q7):
+
+    @classmethod
+    def get_card(cls, inst, mode):
         return inst.app.get(
-                '/scentprofile/' + q6 + '/' + q7
+                    '/card/' + mode,
                 )
-    def put_scent_profile(inst, q6, q7, tag1, tag2, sillage, image_lnk, vid_lnk, start_time, description):
-        return inst.app.put(
-                '/scentprofile/0/0',
-                data = dict(q6=q6, q7=q7, tag1=tag1, tag2=tag2, sillage=sillage, image_lnk=image_lnk, vid_lnk=vid_lnk, start_time=start_time, description=description),
-                )
-    def make_perfume(inst, name, designer, image_lnk, buy_lnk, scent_id):
+
+    @classmethod
+    def print_error(cls, resp, status):
+        if resp.status_code != status:
+            resp_json = json.loads(resp.data.decode())
+            print(resp_json['error_message'])
+
+    @classmethod
+    def make_notbought(cls, inst, q1, q2, q3, name):
         return inst.app.post(
-                '/perfume/hai',
-                data = dict(name=name, designer=designer, image_lnk=image_lnk, buy_lnk=buy_lnk, scent_id=scent_id)
+                    '/notbought',
+                    data = dict(q1=q1, q2=q2, q3=q3, name=name)
                 )
-    def get_perfume(inst, name):
-        return inst.app.get(
-                '/perfume/' + name
+
+    @classmethod
+    def get_notbought(cls, inst):
+        return inst.app.post(
+                    '/notbought',
                 )
-    def put_perfume(inst, name, designer, image_lnk, buy_lnk, scent_id):
-        return inst.app.put(
-                '/perfume/hai',
-                data = dict(name=name, designer=designer, image_lnk=image_lnk, buy_lnk=buy_lnk, scent_id=scent_id)
-                )
-    def quiz_req(inst, q6, q7):
-        return inst.app.get(
-                '/quiz/' + q6 + '/' + q7,
-                )    
+

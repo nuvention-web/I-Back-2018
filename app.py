@@ -3,17 +3,14 @@ import os
 from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
-from resources.scent_profile import ScentProfile, ScentProfileAdmin
-from resources.perfume import Perfume
-from resources.quiz import Quiz
+from resources.card import Card
+from resources.notbought import NotBought
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=2592000)
-#app.secret_key = ''
 api = Api(app)
-#CORS(app, resources={r"/*": {"origins": "http://perffront.s3-website-us-east-1.amazonaws.com/"}})
 CORS(app, resources={r"/*": {"origins": "http://perffronttwo.s3-website-us-east-1.amazonaws.com"}})
 #CORS(app)
 
@@ -21,11 +18,8 @@ CORS(app, resources={r"/*": {"origins": "http://perffronttwo.s3-website-us-east-
 def hello_world():
     return 'Hello World!'
 
-
-api.add_resource(ScentProfile, '/scentprofile/<int:q6>/<int:q7>')
-api.add_resource(Perfume, '/perfume/<string:name>')
-api.add_resource(Quiz, '/quiz/<int:q6>/<int:q7>')
-
+api.add_resource(Card, '/card/<string:mode>')
+api.add_resource(NotBought, '/notbought')
 
 if __name__ == '__main__':
     from db import db

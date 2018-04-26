@@ -34,34 +34,30 @@ class BasicTests(unittest.TestCase):
     def tearDown(self):
         pass
                 
-
+ 
     ###############
     #### tests ####
     ###############
 
-    def test_quiz(self):
-        # create scent_profile
-        scent_profile_create = helper.make_scent_profile(self, 0, 1, 'Fresh', '', 'Light', 'aha', '', 0, "hah")
-        self.assertEqual(scent_profile_create.status_code, 201)
-        scent_profile_get = helper.get_scent_profile(self, '0', '1')
-        scent_profile_data = json.loads(scent_profile_get.data.decode())
-        self.assertEqual(scent_profile_data['id'], 1)
-        _id = scent_profile_data['id']
+    def test_card_post_get(self):
 
-        # make perfume
-        valid_post = helper.make_perfume(self, '3', 'b', 'c', 'd', str(_id))
-        self.assertEqual(valid_post.status_code, 201)
+        # create card
+        # make_card name, accord, image_lnk, video_lnk, start_time, description
+        new_card = helper.make_card(self, 'name', 'accord', 'image', 'video', '0', 'desc')
+        self.assertEqual(new_card.status_code, 201)
+        new_card_get = helper.get_card(self, 'name')
+        helper.print_error(new_card_get, 200)
+        self.assertEqual(new_card_get.status_code, 200)
+        new_card_data = json.loads(new_card_get.data.decode())
+        self.assertEqual(new_card_data['response'][0]['name'], 'name')
+        self.assertEqual(new_card_data['response'][0]['accord'], 'accord')
+        new_card_get = helper.get_card(self, 'all')
+        helper.print_error(new_card_get, 200)
+        self.assertEqual(new_card_get.status_code, 200)
+        new_card_data = json.loads(new_card_get.data.decode())
+        self.assertEqual(new_card_data['response'][0]['name'], 'name')
+        self.assertEqual(new_card_data['response'][0]['accord'], 'accord')
 
-        # get perfume
-        valid_get = helper.get_perfume(self, '3')
-        self.assertEqual(valid_get.status_code, 200)
-        valid_get_data = json.loads(valid_get.data.decode())
-        self.assertEqual(valid_get_data['name'], '3')
-
-        quiz = helper.quiz_req(self, '0', '1')
-        self.assertEqual(quiz.status_code, 200)
-        quiz_data = json.loads(quiz.data.decode())
-        self.assertEqual(quiz_data['perfumes'][0]['name'], '3')
     
 
 if __name__ == "__main__":
