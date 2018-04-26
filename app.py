@@ -4,6 +4,7 @@ from flask import Flask
 from flask_cors import CORS
 from flask_restful import Api
 from resources.card import Card
+from resources.notbought import NotBought
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
@@ -18,6 +19,7 @@ def hello_world():
     return 'Hello World!'
 
 api.add_resource(Card, '/card/<string:mode>')
+api.add_resource(NotBought, '/notbought')
 
 if __name__ == '__main__':
     from db import db
