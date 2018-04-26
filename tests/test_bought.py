@@ -38,26 +38,27 @@ class BasicTests(unittest.TestCase):
     ###############
     #### tests ####
     ###############
+    # /bought
 
-    def test_card_post_get(self):
+    def test_notbought_post_get(self):
 
         # create card
-        # make_card name, accord, image_lnk, video_lnk, start_time, description
-        new_card = helper.make_card(self, 'name', 'accord', 'image', 'video', '0', 'desc')
+        new_card = helper.make_card(self, 'name1', 'accord1', 'image1', 'vid1', 0, 'desc1')
         self.assertEqual(new_card.status_code, 201)
-        new_card_get = helper.get_card(self, 'name')
-        helper.print_error(new_card_get, 200)
-        self.assertEqual(new_card_get.status_code, 200)
-        new_card_data = json.loads(new_card_get.data.decode())
-        self.assertEqual(new_card_data['response'][0]['name'], 'name')
-        self.assertEqual(new_card_data['response'][0]['accord'], 'accord')
-        new_card_get = helper.get_card(self, 'all')
-        helper.print_error(new_card_get, 200)
-        self.assertEqual(new_card_get.status_code, 200)
-        new_card_data = json.loads(new_card_get.data.decode())
-        self.assertEqual(new_card_data['response'][0]['name'], 'name')
-        self.assertEqual(new_card_data['response'][0]['accord'], 'accord')
+        new_card = helper.make_card(self, 'name2', 'accord2', 'image2', 'vid2', 0, 'desc2')
+        self.assertEqual(new_card.status_code, 201)
+        new_card = helper.make_card(self, 'name3', 'accord3', 'image3', 'vid3', 0, 'desc3')
+        self.assertEqual(new_card.status_code, 201)
 
+        ###### card prep complete, now checking bought
+        # make_bought q1(card name), q2, q3, name 
+        new_bought = helper.make_bought(self, 'name1', 'name2', 'name3', 'san_email', 'san')
+        # helper.print_error(new_bought, 201)
+        # check if the bought was made
+        self.assertEqual(new_bought.status_code, 201)
+
+
+    
 
 if __name__ == "__main__":
     unittest.main()

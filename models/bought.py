@@ -53,3 +53,6 @@ class BoughtModel(db.Model):
     def filter_by_accord(cls, accord):
         return cls.query.filter(accord == accord).all()
 
+    @classmethod
+    def get_all(cls, accord):
+        return cls.query.all()

@@ -30,7 +30,19 @@ class helper():
 
     @classmethod
     def get_notbought(cls, inst):
-        return inst.app.post(
+        return inst.app.get(
                     '/notbought',
                 )
+    @classmethod
+    def make_bought(cls, inst, q1, q2, q3, email, name):
+        return inst.app.post(
+                    '/bought',
+                    data = dict(q1=q1, q2=q2, q3=q3, name=name, email=email)
+               )
+    @classmethod
+    def get_bought(cls, inst):
+        return inst.app.get(
+                    '/notbought',
+                )
+
 
