@@ -26,7 +26,7 @@ class CardModel(db.Model):
                     "name": self.name,
                     "accord": self.accord,
                     "image_lnk": self.image_lnk,
-                    "video_lnk": self.video_lnk,
+                    "vid_lnk": self.vid_lnk,
                     "start_time": self.start_time,
                     "description": self.description,
                }
@@ -45,13 +45,13 @@ class CardModel(db.Model):
 
     @classmethod
     def find_by_name(cls, name):
-        return cls.query.filter_by(name == name).first().all()
+        return cls.query.filter_by(name=name).first()
 
     @classmethod
     def filter_by_accord(cls, accord):
-        return cls.query.filter(accord == accord).all()
+        return cls.query.filter(accord=accord).all()
 
     @classmethod
-    def give_all(cls):
+    def get_all(cls):
         return cls.query.all()
 

@@ -1,4 +1,4 @@
-from models.Card import CardModel
+from models.card import CardModel
 import sys
 
 
@@ -27,10 +27,10 @@ class CardController():
                 result = CardModel.get_all()
             except: 
                 return "Error getting all cards.", 500, None
-        elif mode in cards:
+        else:
             try: 
-                result = CardModel.find_by_name(mode)
-            except
+                result.append(CardModel.find_by_name(mode))
+            except:
                 return "Error getting specified card.", 500, None
         
         if not result:

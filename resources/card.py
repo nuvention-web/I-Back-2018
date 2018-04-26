@@ -15,7 +15,7 @@ class Card(Resource):
             required=True,
             help="Description field is required and cannot be left blank.",
             )
-    parser.add_argument('video_lnk',
+    parser.add_argument('vid_lnk',
             type=str,
             required=True,
             help="video_lnk field is required and cannot be left blank.",
@@ -45,7 +45,7 @@ class Card(Resource):
     def post(self, mode):
         data = Card.parser.parse_args()
 
-        error_message, status, response = CardController.make_card(data['name'], data['accord'], data['image_lnk'], data['video_lnk'], data['start_time'], data['description'])
+        error_message, status, response = CardController.make_card(data['name'], data['accord'], data['image_lnk'], data['vid_lnk'], data['start_time'], data['description'])
 
         if error_message:
             return {"error_message": error_message}, status
