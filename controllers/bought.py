@@ -1,13 +1,12 @@
 from models.bought import BoughtModel
-from models.card import CardModel
-
 
 class BoughtController():
 
     @classmethod
-    def make_bought(cls, q1, q2, q3, name):
+    def make_bought(cls, q1, q2, q3, name, email):
         try: 
             new_bought = BoughtModel(name, email, q1, q2, q3)
+
         except:
             return "Error creating a bought response", 500, None
         try:

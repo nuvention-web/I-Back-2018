@@ -53,7 +53,7 @@ class BasicTests(unittest.TestCase):
         ###### card prep complete, now checking bought
         # make_bought q1(card name), q2, q3, name 
         new_bought = helper.make_bought(self, 'name1', 'name2', 'name3', 'san_email', 'san')
-        # helper.print_error(new_bought, 201)
+        helper.print_error(new_bought, 201)
         # check if the bought was made
         self.assertEqual(new_bought.status_code, 201)
 
