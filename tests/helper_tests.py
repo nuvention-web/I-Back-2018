@@ -24,25 +24,25 @@ class helper():
     @classmethod
     def make_notbought(cls, inst, q1, q2, q3, name):
         return inst.app.post(
-                    '/notbought',
+                    '/notbought/make',
                     data = dict(q1=q1, q2=q2, q3=q3, name=name)
                 )
 
     @classmethod
-    def get_notbought(cls, inst):
+    def get_notbought(cls, inst, mode):
         return inst.app.get(
-                    '/notbought',
+                    '/notbought/' + mode,
                 )
     @classmethod
     def make_bought(cls, inst, q1, q2, q3, email, name):
         return inst.app.post(
-                    '/bought',
+                    '/bought/make',
                     data = dict(q1=q1, q2=q2, q3=q3, name=name, email=email)
                )
     @classmethod
-    def get_bought(cls, inst):
+    def get_bought(cls, inst, mode):
         return inst.app.get(
-                    '/notbought',
+                    '/bought/' + mode,
                 )
 
 

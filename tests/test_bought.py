@@ -56,9 +56,18 @@ class BasicTests(unittest.TestCase):
         helper.print_error(new_bought, 201)
         # check if the bought was made
         self.assertEqual(new_bought.status_code, 201)
-
-
+        
+        get_bought = helper.get_bought(self, 'all')
+        helper.print_error(get_bought, 200)
+        self.assertEqual(get_bought.status_code, 200)
+        get_data = json.loads(get_bought.data.decode())
+        self.assertEqual(get_data['response'][0]['email'], 'san_email')
     
+        get_bought = helper.get_bought(self, '1')
+        helper.print_error(get_bought, 200)
+        self.assertEqual(get_bought.status_code, 200)
+        get_data = json.loads(get_bought.data.decode())
+        self.assertEqual(get_data['response'][0]['email'], 'san_email')
 
 if __name__ == "__main__":
     unittest.main()

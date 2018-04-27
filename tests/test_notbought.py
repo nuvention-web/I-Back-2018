@@ -59,7 +59,16 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(resp_data['response']['Cards'][0]['name'], 'name1')
         self.assertEqual(resp_data['response']['Cards'][1]['name'], 'name2')
         self.assertEqual(resp_data['response']['Cards'][2]['name'], 'name3')
-
+        # get all
+        get_notbought = helper.get_notbought(self, 'all')
+        helper.print_error(get_notbought, 200)
+        get_data = json.loads(get_notbought.data.decode())
+        self.assertEqual(get_data['response'][0]['name'], 'san')
+        # get by id
+        get_notbought = helper.get_notbought(self, '1')
+        helper.print_error(get_notbought, 200)
+        get_data = json.loads(get_notbought.data.decode())
+        self.assertEqual(get_data['response'][0]['name'], 'san')
     
 
 if __name__ == "__main__":
