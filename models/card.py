@@ -33,7 +33,7 @@ class CardModel(db.Model):
         
     def json_debug(self):
         return {
-                    "id": self.id
+                    "id": self.id,
                     "name": self.name,
                     "accord": self.accord,
                     "image_lnk": self.image_lnk,
