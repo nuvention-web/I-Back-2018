@@ -60,5 +60,5 @@ class Card(Resource):
         if error_message:
             return {"error_message": error_message}, status
 
-        return {"response": list(map(lambda x: x.json() if x else None, response))}
+        return {"response": list(map(lambda x: x.json_debug() if x else None, response))}
 

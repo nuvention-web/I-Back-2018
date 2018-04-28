@@ -17,11 +17,20 @@ class BoughtController():
         return "", 201, None
 
     @classmethod
-    def get_bought(cls):
-        try:
-            return "", 200, BoughtModel.get_all()
-        except:
-            return "Error retrieving bought", 500, None
+    def get_bought(cls, mode):
+        if mode == 'all':
+            try:
+                return "", 200, BoughtModel.get_all()
+            except:
+                return "Error retrieving all bought", 500, None
+        elif mode.isnumeric():
+            try:
+                result = []
+                result.append(BoughtModel.find_by_id(int(mode)))
+                return "", 200, result
+            except:
+                return "Error retrieving bought by id", 500, None
+
         
 
         

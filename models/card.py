@@ -30,6 +30,17 @@ class CardModel(db.Model):
                     "start_time": self.start_time,
                     "description": self.description,
                }
+        
+    def json_debug(self):
+        return {
+                    "id": self.id
+                    "name": self.name,
+                    "accord": self.accord,
+                    "image_lnk": self.image_lnk,
+                    "vid_lnk": self.vid_lnk,
+                    "start_time": self.start_time,
+                    "description": self.description,
+               }
 
     def save_to_db(self):
         db.session.add(self)

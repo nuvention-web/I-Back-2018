@@ -4,7 +4,9 @@ from controllers.notbought import NotBoughtController
 
 class NotBought(Resource):
     """
-    /notbought
+    /notbought/mode
+        1. mode can be all
+        2. or id
     """
     parser = reqparse.RequestParser()
     parser.add_argument('q1',
@@ -29,7 +31,7 @@ class NotBought(Resource):
             )
 
 
-    def post(self):
+    def post(self, mode):
         data = NotBought.parser.parse_args()
 
         error_message, status, response = NotBoughtController.make_notbought(data['q1'], data['q2'], data['q3'], data['name'])
@@ -39,8 +41,12 @@ class NotBought(Resource):
 
         return {"response": {"Cards": list(map(lambda x: x.json() if x else None, response))}}, status
 
-    def get(self):
+    def get(self, mode):
 
+        error_message, status, response = NotBoughtController.get_notbought(mode)
 
-        return {"response": "hi"} 
+        if error_message:
+            return {"error_message": error_message}, status
+
+        return {"response": list(map(lambda x: x.json() if x else None, response))}, status
 

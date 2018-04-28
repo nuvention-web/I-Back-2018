@@ -20,8 +20,8 @@ def hello_world():
     return 'Hello World!'
 
 api.add_resource(Card, '/card/<string:mode>')
-api.add_resource(NotBought, '/notbought')
-api.add_resource(Bought, '/bought')
+api.add_resource(NotBought, '/notbought/<string:mode>')
+api.add_resource(Bought, '/bought/<string:mode>')
 
 if __name__ == '__main__':
     from db import db

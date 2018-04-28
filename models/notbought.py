@@ -23,7 +23,7 @@ class NotBoughtModel(db.Model):
                     "created": self.date_created.strftime("%Y-%m-%d %H:%M:%S"),
                     "q1": self.q1,
                     "q2": self.q2,
-                    "q3": slef.q3,
+                    "q3": self.q3,
                }
 
     def save_to_db(self):
@@ -41,4 +41,8 @@ class NotBoughtModel(db.Model):
     @classmethod
     def find_by_name(cls, name):
         return cls.query.filter_by(name == name).first()
+
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
 

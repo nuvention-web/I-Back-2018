@@ -26,7 +26,7 @@ class BoughtModel(db.Model):
                     "created": self.date_created.strftime("%Y-%m-%d %H:%M:%S"),
                     "q1": self.q1,
                     "q2": self.q2,
-                    "q3": slef.q3,
+                    "q3": self.q3,
                }
 
     def save_to_db(self):
@@ -54,5 +54,5 @@ class BoughtModel(db.Model):
         return cls.query.filter(accord == accord).all()
 
     @classmethod
-    def get_all(cls, accord):
+    def get_all(cls):
         return cls.query.all()

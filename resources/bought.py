@@ -34,7 +34,7 @@ class Bought(Resource):
             )
 
 
-    def post(self):
+    def post(self, mode):
         data = Bought.parser.parse_args()
 
         error_message, status, response = BoughtController.make_bought(data['q1'], data['q2'], data['q3'], data['name'], data['email'])
@@ -44,7 +44,12 @@ class Bought(Resource):
 
         return {"response": "Success!"}, status
 
-    def get(self):
+    def get(self, mode):
 
-        return {"response": "hi"} 
+        error_message, status, response = BoughtController.get_bought(mode)
+
+        if error_message:
+            return {"error_message": error_message}, status
+
+        return {"response": list(map(lambda x : x.json() if x else None, response))}, status
 

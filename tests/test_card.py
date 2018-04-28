@@ -51,6 +51,7 @@ class BasicTests(unittest.TestCase):
         new_card_data = json.loads(new_card_get.data.decode())
         self.assertEqual(new_card_data['response'][0]['name'], 'name')
         self.assertEqual(new_card_data['response'][0]['accord'], 'accord')
+
         new_card_get = helper.get_card(self, 'all')
         helper.print_error(new_card_get, 200)
         self.assertEqual(new_card_get.status_code, 200)
@@ -58,6 +59,29 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(new_card_data['response'][0]['name'], 'name')
         self.assertEqual(new_card_data['response'][0]['accord'], 'accord')
 
+    def test_card_edit(self):
+        # create card
+        new_card = helper.make_card(self, 'name', 'accord', 'image', 'video', '0', 'desc')
+        self.assertEqual(new_card.status_code, 201)
+        new_card_get = helper.get_card(self, 'name')
+        helper.print_error(new_card_get, 200)
+        self.assertEqual(new_card_get.status_code, 200)
+        new_card_data = json.loads(new_card_get.data.decode())
+        self.assertEqual(new_card_data['response'][0]['name'], 'name')
+        self.assertEqual(new_card_data['response'][0]['accord'], 'accord')
+
+        # get card and check
+        new_card_get = helper.get_card(self, 'all')
+        helper.print_error(new_card_get, 200)
+        self.assertEqual(new_card_get.status_code, 200)
+        new_card_data = json.loads(new_card_get.data.decode())
+        self.assertEqual(new_card_data['response'][0]['name'], 'name')
+        self.assertEqual(new_card_data['response'][0]['accord'], 'accord')
+
+        #edit card
+        #edit_card = helper.edit_card(self, 'all
+
+        
 
 if __name__ == "__main__":
     unittest.main()

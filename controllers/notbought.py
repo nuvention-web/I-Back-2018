@@ -15,8 +15,6 @@ class NotBoughtController():
             new_notbought.save_to_db()
         except:
             return "Error saving to db", 500, None
-
-        
         result = []
         try:
             result = NotBoughtController.calculate_cards(q1, q2, q3)
@@ -35,17 +33,21 @@ class NotBoughtController():
         
         return result
 
-
-
-
-
-
-
-
-
-            
-
-
-
+    @classmethod
+    def get_notbought(cls, mode):
+        if mode == 'all':
+            try:
+                return "", 200, NotBoughtModel.get_all()
+            except:
+                return "Error retrieving all from db", 500, None
+        elif mode.isnumeric():
+            try:
+                result = []
+                result.append(NotBoughtModel.find_by_id(int(mode)))
+                return "", 200, result
+            except:
+                return "Error getting one from db", 500, None
+        else:
+            return "Invalid mode", 400, None
 
 
