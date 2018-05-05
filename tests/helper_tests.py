@@ -42,16 +42,22 @@ class helper():
         return inst.app.get(
                     '/notbought/' + mode,
                 )
+                
+    @classmethod
+    def delete_notbought(cls, inst, _id):
+        return inst.app.delete(
+                    '/notbought/' + _id,
+                )
+             
     @classmethod
     def make_bought(cls, inst, q1, q2, q3, email, name):
         return inst.app.post(
                     '/bought/make',
                     data = dict(q1=q1, q2=q2, q3=q3, name=name, email=email)
                )
+
     @classmethod
     def get_bought(cls, inst, mode):
         return inst.app.get(
                     '/bought/' + mode,
                 )
-
-

@@ -105,6 +105,15 @@ class BasicTests(unittest.TestCase):
         # get card
         failed_get = helper.get_card(self, 'name')
         self.assertEqual(failed_get.status_code, 400)
+    
+    def test_delete_card(self):
+        # create card
+        new_card = helper.make_card(self, 'name', 'accord', 'image', 'video', '0', 'desc')
+        self.assertEqual(new_card.status_code, 201)      
+        # delete card
+        no_card = helper.delete_card(self, 'name1')
+        # get card
+        self.assertEqual(no_card.status_code, 400)
 
 
 if __name__ == "__main__":

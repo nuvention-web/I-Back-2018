@@ -40,8 +40,23 @@ class BasicTests(unittest.TestCase):
     ###############
     # /notbought
 
-    def test_notbought_post_get(self):
+    def test_notbought_delete(self):
+        # make cards, make notbought
+        new_card = helper.make_card(self, 'name1', 'accord1', 'image1', 'vid1', 0, 'desc1')
+        self.assertEqual(new_card.status_code, 201)
+        new_card = helper.make_card(self, 'name2', 'accord2', 'image2', 'vid2', 0, 'desc2')
+        self.assertEqual(new_card.status_code, 201)
+        new_card = helper.make_card(self, 'name3', 'accord3', 'image3', 'vid3', 0, 'desc3')
+        self.assertEqual(new_card.status_code, 201)
+        new_notbought = helper.make_notbought(self, 'name1', 'name2', 'name3', 'san')
+        get_notbought = helper.get_notbought(self, '1')
+        self.assertEqual(get_notbought.status_code, 200)
+        # delete notbought by id(?)
+        delete_notbought = helper.delete_notbought(self, '1')
+        get_notbought = helper.get_notbought(self, '1')
+        self.assertEqual(get_notbought.status_code, 400)
 
+    def test_notbought_post_get(self):
         # create card
         new_card = helper.make_card(self, 'name1', 'accord1', 'image1', 'vid1', 0, 'desc1')
         self.assertEqual(new_card.status_code, 201)
@@ -49,7 +64,6 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(new_card.status_code, 201)
         new_card = helper.make_card(self, 'name3', 'accord3', 'image3', 'vid3', 0, 'desc3')
         self.assertEqual(new_card.status_code, 201)
-
         ###### card prep complete, now checking notbought
         # make_notbought q1(card name), q2, q3, name 
         new_notbought = helper.make_notbought(self, 'name1', 'name2', 'name3', 'san')

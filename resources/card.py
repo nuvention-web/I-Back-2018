@@ -64,7 +64,6 @@ class Card(Resource):
 
     def delete(self, mode):
         
-        print(mode)
         error_message, status, response = CardController.delete_card(mode)
 
         if error_message:
