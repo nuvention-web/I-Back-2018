@@ -61,3 +61,9 @@ class helper():
         return inst.app.get(
                     '/bought/' + mode,
                 )
+    
+    @classmethod
+    def delete_bought(cls, inst, _id):
+        return inst.app.delete(
+                    '/bought/' + _id,
+                )
