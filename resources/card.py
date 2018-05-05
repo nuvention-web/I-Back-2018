@@ -53,12 +53,22 @@ class Card(Resource):
         return {"message": "Success!"}, status
 
     def get(self, mode):
-
-        # get_card needs to return a list
+        # get_card will return a list
         error_message, status, response = CardController.get_card(mode)
 
         if error_message:
             return {"error_message": error_message}, status
 
-        return {"response": list(map(lambda x: x.json_debug() if x else None, response))}
+        return {"response": list(map(lambda x: x.json_debug() if x else None, response))}, status
+
+
+    def delete(self, mode):
+        
+        print(mode)
+        error_message, status, response = CardController.delete_card(mode)
+
+        if error_message:
+            return {"error_message": error_message}, status
+
+        return {"response": "Successfully deleted!"}, status
 

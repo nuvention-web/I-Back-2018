@@ -16,10 +16,19 @@ class helper():
                 )
 
     @classmethod
+    def delete_card(cls, inst, name):
+        return inst.app.delete(
+                    '/card/' + name,
+                )
+    
+    # @classmethod
+    # def edit_card(cls, inst, )
+
+    @classmethod
     def print_error(cls, resp, status):
         if resp.status_code != status:
             resp_json = json.loads(resp.data.decode())
-            print(resp_json['error_message'])
+            print(resp_json)
 
     @classmethod
     def make_notbought(cls, inst, q1, q2, q3, name):

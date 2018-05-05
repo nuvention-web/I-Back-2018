@@ -6,6 +6,10 @@ class CardController():
 
     @classmethod
     def make_card(cls, name, accord, image_lnk, video_lnk, start_time, description):
+
+        if CardModel.find_by_name(name):
+            return "Card with that name already exists. To edit, use PUT not POST", 400, None
+
         try: 
             new_card = CardModel(name, accord, image_lnk, video_lnk, start_time, description)
         except:
@@ -33,11 +37,23 @@ class CardController():
             except:
                 return "Error getting specified card.", 500, None
         
-        if not result:
+        if result[0] is None:
             return "Empty result. the name must be EXACT", 400, None
         else:
             return "", 200, result
 
+    @classmethod
+    def delete_card(cls, name):
+        wanted = CardModel.find_by_name(name)
+        if not wanted:
+            return "Card with that name doesn't exist", 400, None
+        
+        try:
+            wanted.delete_from_db()
+        except:
+            return "Error deleting from db", 500, None
+
+        return "", 200, None
 
 
 
