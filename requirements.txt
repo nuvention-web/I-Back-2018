@@ -17,6 +17,7 @@ Flask-RESTful==0.3.6
 Flask-Script==2.0.6
 Flask-SQLAlchemy==2.3.2
 freezegun==0.3.9
+gunicorn==19.8.1
 idna==2.6
 isort==4.3.4
 itsdangerous==0.24
@@ -26,6 +27,7 @@ Mako==1.0.7
 MarkupSafe==1.0
 mccabe==0.6.1
 nose2==0.7.3
+pkg-resources==0.0.0
 pluggy==0.6.0
 psycopg2==2.7.3.2
 py==1.5.2
