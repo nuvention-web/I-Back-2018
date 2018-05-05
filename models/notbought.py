@@ -19,6 +19,7 @@ class NotBoughtModel(db.Model):
 
     def json(self):
         return {
+                    "id": self.id,
                     "name": self.name,
                     "created": self.date_created.strftime("%Y-%m-%d %H:%M:%S"),
                     "q1": self.q1,

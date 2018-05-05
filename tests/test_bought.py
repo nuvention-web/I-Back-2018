@@ -40,8 +40,26 @@ class BasicTests(unittest.TestCase):
     ###############
     # /bought
 
-    def test_notbought_post_get(self):
+    def test_bought_delete(self):
+        # create card, bought
+        new_card = helper.make_card(self, 'name1', 'accord1', 'image1', 'vid1', 0, 'desc1')
+        self.assertEqual(new_card.status_code, 201)
+        new_card = helper.make_card(self, 'name2', 'accord2', 'image2', 'vid2', 0, 'desc2')
+        self.assertEqual(new_card.status_code, 201)
+        new_card = helper.make_card(self, 'name3', 'accord3', 'image3', 'vid3', 0, 'desc3')
+        self.assertEqual(new_card.status_code, 201)
+        new_bought = helper.make_bought(self, 'name1', 'name2', 'name3', 'san_email', 'san')
+        self.assertEqual(new_bought.status_code, 201)
+        get_bought = helper.get_bought(self, '1')
+        self.assertEqual(get_bought.status_code, 200)
 
+        delete_bought = helper.delete_bought(self, '1')
+        self.assertEqual(delete_bought.status_code, 200)
+        get_bought = helper.get_bought(self, '1')
+        self.assertEqual(get_bought.status_code, 400)
+
+
+    def test_bought_post_get(self):
         # create card
         new_card = helper.make_card(self, 'name1', 'accord1', 'image1', 'vid1', 0, 'desc1')
         self.assertEqual(new_card.status_code, 201)
@@ -56,7 +74,7 @@ class BasicTests(unittest.TestCase):
         helper.print_error(new_bought, 201)
         # check if the bought was made
         self.assertEqual(new_bought.status_code, 201)
-        
+    
         get_bought = helper.get_bought(self, 'all')
         helper.print_error(get_bought, 200)
         self.assertEqual(get_bought.status_code, 200)

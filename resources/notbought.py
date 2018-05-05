@@ -50,3 +50,12 @@ class NotBought(Resource):
 
         return {"response": list(map(lambda x: x.json() if x else None, response))}, status
 
+
+    def delete(self, mode):
+
+        error_message, status, response = NotBoughtController.delete_notbought(mode)
+
+        if error_message:
+            return {"error_message": error_message}, status
+
+        return {"response": "Success!"}, status
