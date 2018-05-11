@@ -4,3 +4,20 @@
 [2018-05-05 05:38:03 +0000] [13849] [INFO] Booting worker with pid: 13849
 [2018-05-05 05:38:03 +0000] [13850] [INFO] Booting worker with pid: 13850
 [2018-05-05 05:38:03 +0000] [13851] [INFO] Booting worker with pid: 13851
+[2018-05-11 02:32:36,881] ERROR in app: Exception on /card/all [GET]
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask_restful/__init__.py", line 480, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask_restful/__init__.py", line 595, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/mark/perf_back/resources/card.py", line 57, in get
+    error_message, status, response = CardController.get_card(mode)
+  File "/home/mark/perf_back/controllers/card.py", line 40, in get_card
+    if result[0] is None:
+IndexError: list index out of range
