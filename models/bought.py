@@ -5,7 +5,7 @@ class BoughtModel(db.Model):
     __tablename__ = 'bought'
 
     id = db.Column(db.Integer, primary_key=True)
-    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
+    date_created = db.Column(db.DateTime)
     name = db.Column(db.String(100))
     email = db.Column(db.String(255))
     q1 = db.Column(db.String(100))
@@ -18,6 +18,7 @@ class BoughtModel(db.Model):
         self.q1 = q1
         self.q2 = q2
         self.q3 = q3
+        self.date_created=datetime.now()
 
     def json(self):
         return {
