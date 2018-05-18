@@ -4,7 +4,7 @@ from controllers.bought import BoughtController
 
 class Bought(Resource):
     """
-    /notbought
+    /bought
     """
     parser = reqparse.RequestParser()
     parser.add_argument('q1',
