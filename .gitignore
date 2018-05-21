@@ -103,6 +103,7 @@ ENV/
 
 # test.db
 tests/test.db
+data.db
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

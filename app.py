@@ -11,7 +11,7 @@ from resources.notbought import NotBought
 from resources.bought import Bought
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///localdata.db')
 #app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=2592000)
@@ -19,6 +19,7 @@ api = Api(app)
 migrate = Migrate(app, db)
 #CORS(app, resources={r"/*": {"origins": "http://survey.tryperf.com.s3-website-us-east-1.amazonaws.com"}})
 CORS(app, resources={r"/*": {"origins": "http://survey.tryperf.com"}})
+CORS(app, resources={r"/*": {"origins": "http://tryperf.s3-website-us-east-1.amazonaws.com"}})
 #CORS(app)
 
 @app.route('/')
