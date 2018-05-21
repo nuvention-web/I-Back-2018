@@ -21,3 +21,781 @@ Traceback (most recent call last):
   File "/home/mark/perf_back/controllers/card.py", line 40, in get_card
     if result[0] is None:
 IndexError: list index out of range
+[2018-05-11 20:36:46 +0000] [13846] [INFO] Handling signal: term
+[2018-05-11 20:36:46 +0000] [13849] [INFO] Worker exiting (pid: 13849)
+[2018-05-11 20:36:46 +0000] [13850] [INFO] Worker exiting (pid: 13850)
+[2018-05-11 20:36:46 +0000] [13851] [INFO] Worker exiting (pid: 13851)
+[2018-05-11 20:36:46 +0000] [13846] [INFO] Shutting down: Master
+[2018-05-11 20:37:31 +0000] [4903] [INFO] Starting gunicorn 19.8.1
+[2018-05-11 20:37:31 +0000] [4903] [INFO] Listening at: http://127.0.0.1:8000 (4903)
+[2018-05-11 20:37:31 +0000] [4903] [INFO] Using worker: sync
+[2018-05-11 20:37:31 +0000] [4906] [INFO] Booting worker with pid: 4906
+[2018-05-11 20:37:31 +0000] [4907] [INFO] Booting worker with pid: 4907
+[2018-05-11 20:37:31 +0000] [4908] [INFO] Booting worker with pid: 4908
+[2018-05-11 20:37:46 +0000] [4903] [INFO] Handling signal: int
+[2018-05-11 20:37:46 +0000] [4906] [INFO] Worker exiting (pid: 4906)
+[2018-05-11 20:37:46 +0000] [4907] [INFO] Worker exiting (pid: 4907)
+[2018-05-11 20:37:46 +0000] [4903] [INFO] Shutting down: Master
+[2018-05-11 20:40:01 +0000] [4971] [INFO] Starting gunicorn 19.8.1
+[2018-05-11 20:40:01 +0000] [4971] [INFO] Listening at: http://127.0.0.1:8000 (4971)
+[2018-05-11 20:40:01 +0000] [4971] [INFO] Using worker: sync
+[2018-05-11 20:40:01 +0000] [4974] [INFO] Booting worker with pid: 4974
+[2018-05-11 20:40:01 +0000] [4975] [INFO] Booting worker with pid: 4975
+[2018-05-11 20:40:01 +0000] [4976] [INFO] Booting worker with pid: 4976
+[2018-05-11 20:40:29 +0000] [4971] [INFO] Handling signal: int
+[2018-05-11 20:40:29 +0000] [4974] [INFO] Worker exiting (pid: 4974)
+[2018-05-11 20:40:29 +0000] [4975] [INFO] Worker exiting (pid: 4975)
+[2018-05-11 20:40:29 +0000] [4971] [INFO] Shutting down: Master
+[2018-05-11 20:40:33 +0000] [4980] [INFO] Starting gunicorn 19.8.1
+[2018-05-11 20:40:33 +0000] [4980] [INFO] Listening at: http://127.0.0.1:8000 (4980)
+[2018-05-11 20:40:33 +0000] [4980] [INFO] Using worker: sync
+[2018-05-11 20:40:33 +0000] [4983] [INFO] Booting worker with pid: 4983
+[2018-05-11 20:40:33 +0000] [4984] [INFO] Booting worker with pid: 4984
+[2018-05-11 20:40:33 +0000] [4985] [INFO] Booting worker with pid: 4985
+[2018-05-11 20:42:04 +0000] [5019] [INFO] Starting gunicorn 19.8.1
+[2018-05-11 20:42:04 +0000] [5019] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-11 20:42:04 +0000] [5019] [ERROR] Retrying in 1 second.
+[2018-05-11 20:42:05 +0000] [5019] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-11 20:42:05 +0000] [5019] [ERROR] Retrying in 1 second.
+[2018-05-11 20:42:06 +0000] [5019] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-11 20:42:06 +0000] [5019] [ERROR] Retrying in 1 second.
+[2018-05-11 20:42:07 +0000] [5019] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-11 20:42:07 +0000] [5019] [ERROR] Retrying in 1 second.
+[2018-05-11 20:42:08 +0000] [5019] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-11 20:42:08 +0000] [5019] [ERROR] Retrying in 1 second.
+[2018-05-11 20:42:09 +0000] [5019] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-12 05:03:56,118] ERROR in app: Exception on /bought/mode [GET]
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask_restful/__init__.py", line 480, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask_restful/__init__.py", line 595, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/mark/perf_back/resources/bought.py", line 49, in get
+    error_message, status, response = BoughtController.get_bought(mode)
+TypeError: 'NoneType' object is not iterable
+[2018-05-12 05:51:38,486] ERROR in app: Exception on /bought/mode [DELETE]
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask_restful/__init__.py", line 480, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask_restful/__init__.py", line 595, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/mark/perf_back/resources/bought.py", line 58, in delete
+    error_message, status, response = BoughtController.delete_bought(mode)
+  File "/home/mark/perf_back/controllers/bought.py", line 40, in delete_bought
+    wanted = BoughtModel.find_by_id(int(_id))
+ValueError: invalid literal for int() with base 10: 'mode'
+[2018-05-12 05:52:58,409] ERROR in app: Exception on /bought/mode [DELETE]
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask_restful/__init__.py", line 480, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask_restful/__init__.py", line 595, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/mark/perf_back/resources/bought.py", line 58, in delete
+    error_message, status, response = BoughtController.delete_bought(mode)
+  File "/home/mark/perf_back/controllers/bought.py", line 40, in delete_bought
+    wanted = BoughtModel.find_by_id(int(_id))
+ValueError: invalid literal for int() with base 10: 'mode'
+[2018-05-15 18:25:52 +0000] [12882] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:25:52 +0000] [12882] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:25:52 +0000] [12882] [ERROR] Retrying in 1 second.
+[2018-05-15 18:25:53 +0000] [12882] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:25:53 +0000] [12882] [ERROR] Retrying in 1 second.
+[2018-05-15 18:25:54 +0000] [12882] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:25:54 +0000] [12882] [ERROR] Retrying in 1 second.
+[2018-05-15 18:25:55 +0000] [12882] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:25:55 +0000] [12882] [ERROR] Retrying in 1 second.
+[2018-05-15 18:25:56 +0000] [12882] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:25:56 +0000] [12882] [ERROR] Retrying in 1 second.
+[2018-05-15 18:25:57 +0000] [12882] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-15 18:26:34 +0000] [12885] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:26:34 +0000] [12885] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:26:34 +0000] [12885] [ERROR] Retrying in 1 second.
+[2018-05-15 18:26:35 +0000] [12885] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:26:35 +0000] [12885] [ERROR] Retrying in 1 second.
+[2018-05-15 18:26:36 +0000] [12885] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:26:36 +0000] [12885] [ERROR] Retrying in 1 second.
+[2018-05-15 18:26:37 +0000] [12885] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:26:37 +0000] [12885] [ERROR] Retrying in 1 second.
+[2018-05-15 18:26:38 +0000] [12885] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:26:38 +0000] [12885] [ERROR] Retrying in 1 second.
+[2018-05-15 18:26:39 +0000] [12885] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-15 18:30:37 +0000] [12929] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:30:37 +0000] [12929] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:30:37 +0000] [12929] [ERROR] Retrying in 1 second.
+[2018-05-15 18:30:38 +0000] [12929] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:30:38 +0000] [12929] [ERROR] Retrying in 1 second.
+[2018-05-15 18:30:39 +0000] [12929] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:30:39 +0000] [12929] [ERROR] Retrying in 1 second.
+[2018-05-15 18:30:40 +0000] [12929] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:30:40 +0000] [12929] [ERROR] Retrying in 1 second.
+[2018-05-15 18:30:41 +0000] [12929] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:30:41 +0000] [12929] [ERROR] Retrying in 1 second.
+[2018-05-15 18:30:42 +0000] [12929] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-15 18:31:43 +0000] [12935] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:31:43 +0000] [12935] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:31:43 +0000] [12935] [ERROR] Retrying in 1 second.
+[2018-05-15 18:31:44 +0000] [12935] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:31:44 +0000] [12935] [ERROR] Retrying in 1 second.
+[2018-05-15 18:31:45 +0000] [12935] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:31:45 +0000] [12935] [ERROR] Retrying in 1 second.
+[2018-05-15 18:31:46 +0000] [12935] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:31:46 +0000] [12935] [ERROR] Retrying in 1 second.
+[2018-05-15 18:31:47 +0000] [12935] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:31:47 +0000] [12935] [ERROR] Retrying in 1 second.
+[2018-05-15 18:31:48 +0000] [12935] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-15 18:32:24 +0000] [12948] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:32:24 +0000] [12948] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:32:24 +0000] [12948] [ERROR] Retrying in 1 second.
+[2018-05-15 18:32:25 +0000] [12948] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:32:25 +0000] [12948] [ERROR] Retrying in 1 second.
+[2018-05-15 18:32:26 +0000] [12948] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:32:26 +0000] [12948] [ERROR] Retrying in 1 second.
+[2018-05-15 18:32:27 +0000] [12948] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:32:27 +0000] [12948] [ERROR] Retrying in 1 second.
+[2018-05-15 18:32:28 +0000] [12948] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:32:28 +0000] [12948] [ERROR] Retrying in 1 second.
+[2018-05-15 18:32:29 +0000] [12948] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-15 18:33:39 +0000] [12970] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:33:39 +0000] [12970] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:33:39 +0000] [12970] [ERROR] Retrying in 1 second.
+[2018-05-15 18:33:40 +0000] [12970] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:33:40 +0000] [12970] [ERROR] Retrying in 1 second.
+[2018-05-15 18:33:41 +0000] [12970] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:33:41 +0000] [12970] [ERROR] Retrying in 1 second.
+[2018-05-15 18:33:42 +0000] [12970] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:33:42 +0000] [12970] [ERROR] Retrying in 1 second.
+[2018-05-15 18:33:43 +0000] [12970] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:33:43 +0000] [12970] [ERROR] Retrying in 1 second.
+[2018-05-15 18:33:44 +0000] [12970] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-15 18:35:40 +0000] [12989] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:35:40 +0000] [12989] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:35:40 +0000] [12989] [ERROR] Retrying in 1 second.
+[2018-05-15 18:35:41 +0000] [12989] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:35:41 +0000] [12989] [ERROR] Retrying in 1 second.
+[2018-05-15 18:35:42 +0000] [12989] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:35:42 +0000] [12989] [ERROR] Retrying in 1 second.
+[2018-05-15 18:35:43 +0000] [12989] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:35:43 +0000] [12989] [ERROR] Retrying in 1 second.
+[2018-05-15 18:35:44 +0000] [12989] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:35:44 +0000] [12989] [ERROR] Retrying in 1 second.
+[2018-05-15 18:35:45 +0000] [12989] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-15 18:36:38 +0000] [12997] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:36:38 +0000] [12997] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:36:38 +0000] [12997] [ERROR] Retrying in 1 second.
+[2018-05-15 18:36:39 +0000] [12997] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:36:39 +0000] [12997] [ERROR] Retrying in 1 second.
+[2018-05-15 18:36:40 +0000] [12997] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:36:40 +0000] [12997] [ERROR] Retrying in 1 second.
+[2018-05-15 18:36:41 +0000] [12997] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:36:41 +0000] [12997] [ERROR] Retrying in 1 second.
+[2018-05-15 18:36:42 +0000] [12997] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:36:42 +0000] [12997] [ERROR] Retrying in 1 second.
+[2018-05-15 18:36:43 +0000] [12997] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-15 18:37:26 +0000] [13014] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:37:26 +0000] [13014] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:37:26 +0000] [13014] [ERROR] Retrying in 1 second.
+[2018-05-15 18:37:27 +0000] [13014] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:37:27 +0000] [13014] [ERROR] Retrying in 1 second.
+[2018-05-15 18:37:28 +0000] [13014] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:37:28 +0000] [13014] [ERROR] Retrying in 1 second.
+[2018-05-15 18:37:29 +0000] [13014] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:37:29 +0000] [13014] [ERROR] Retrying in 1 second.
+[2018-05-15 18:37:30 +0000] [13014] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:37:30 +0000] [13014] [ERROR] Retrying in 1 second.
+[2018-05-15 18:37:31 +0000] [13014] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-15 18:37:42 +0000] [13019] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:37:42 +0000] [13019] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:37:42 +0000] [13019] [ERROR] Retrying in 1 second.
+[2018-05-15 18:37:43 +0000] [13019] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:37:43 +0000] [13019] [ERROR] Retrying in 1 second.
+[2018-05-15 18:37:44 +0000] [13019] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:37:44 +0000] [13019] [ERROR] Retrying in 1 second.
+[2018-05-15 18:37:45 +0000] [13019] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:37:45 +0000] [13019] [ERROR] Retrying in 1 second.
+[2018-05-15 18:37:46 +0000] [13019] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:37:46 +0000] [13019] [ERROR] Retrying in 1 second.
+[2018-05-15 18:37:47 +0000] [13019] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-15 18:39:16 +0000] [13034] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:39:16 +0000] [13034] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:39:16 +0000] [13034] [ERROR] Retrying in 1 second.
+[2018-05-15 18:39:17 +0000] [13034] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:39:17 +0000] [13034] [ERROR] Retrying in 1 second.
+[2018-05-15 18:39:18 +0000] [13034] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:39:18 +0000] [13034] [ERROR] Retrying in 1 second.
+[2018-05-15 18:39:19 +0000] [13034] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:39:19 +0000] [13034] [ERROR] Retrying in 1 second.
+[2018-05-15 18:39:20 +0000] [13034] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-15 18:39:20 +0000] [13034] [ERROR] Retrying in 1 second.
+[2018-05-15 18:39:21 +0000] [13034] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-15 18:40:19 +0000] [4980] [INFO] Handling signal: term
+[2018-05-15 18:40:19 +0000] [4983] [INFO] Worker exiting (pid: 4983)
+[2018-05-15 18:40:19 +0000] [4980] [INFO] Shutting down: Master
+[2018-05-15 18:41:40 +0000] [1398] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:41:40 +0000] [1398] [INFO] Listening at: http://127.0.0.1:8000 (1398)
+[2018-05-15 18:41:40 +0000] [1398] [INFO] Using worker: sync
+[2018-05-15 18:41:40 +0000] [1401] [INFO] Booting worker with pid: 1401
+[2018-05-15 18:41:40 +0000] [1401] [ERROR] invalid syntax (app.py, line 20)
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 20
+    CORS(app, resources={r"/*": {"origins": "http://survey.tryperf.com"})
+                                                                        ^
+SyntaxError: invalid syntax
+[2018-05-15 18:41:40 +0000] [1401] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 20
+    CORS(app, resources={r"/*": {"origins": "http://survey.tryperf.com"})
+                                                                        ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 151, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-05-15 18:41:40 +0000] [1401] [INFO] Worker exiting (pid: 1401)
+[2018-05-15 18:41:40 +0000] [1398] [INFO] Shutting down: Master
+[2018-05-15 18:41:40 +0000] [1398] [INFO] Reason: Worker failed to boot.
+[2018-05-15 18:42:03 +0000] [1404] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:42:03 +0000] [1404] [INFO] Listening at: http://127.0.0.1:8000 (1404)
+[2018-05-15 18:42:03 +0000] [1404] [INFO] Using worker: sync
+[2018-05-15 18:42:03 +0000] [1407] [INFO] Booting worker with pid: 1407
+[2018-05-15 18:42:03 +0000] [1407] [ERROR] invalid syntax (app.py, line 20)
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 20
+    CORS(app, resources={r"/*": {"origins": "http://survey.tryperf.com"})
+                                                                        ^
+SyntaxError: invalid syntax
+[2018-05-15 18:42:03 +0000] [1407] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 20
+    CORS(app, resources={r"/*": {"origins": "http://survey.tryperf.com"})
+                                                                        ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 151, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-05-15 18:42:03 +0000] [1407] [INFO] Worker exiting (pid: 1407)
+[2018-05-15 18:42:03 +0000] [1404] [INFO] Shutting down: Master
+[2018-05-15 18:42:03 +0000] [1404] [INFO] Reason: Worker failed to boot.
+[2018-05-15 18:42:45 +0000] [1457] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:42:45 +0000] [1457] [INFO] Listening at: http://127.0.0.1:8000 (1457)
+[2018-05-15 18:42:45 +0000] [1457] [INFO] Using worker: sync
+[2018-05-15 18:42:45 +0000] [1460] [INFO] Booting worker with pid: 1460
+[2018-05-15 18:42:45 +0000] [1460] [ERROR] invalid syntax (app.py, line 20)
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 20
+    CORS(app, resources={r"/*": {"origins": "http://survey.tryperf.com"})
+                                                                        ^
+SyntaxError: invalid syntax
+[2018-05-15 18:42:45 +0000] [1460] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 20
+    CORS(app, resources={r"/*": {"origins": "http://survey.tryperf.com"})
+                                                                        ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 151, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-05-15 18:42:45 +0000] [1460] [INFO] Worker exiting (pid: 1460)
+[2018-05-15 18:42:45 +0000] [1461] [INFO] Booting worker with pid: 1461
+[2018-05-15 18:42:45 +0000] [1461] [ERROR] invalid syntax (app.py, line 20)
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 20
+    CORS(app, resources={r"/*": {"origins": "http://survey.tryperf.com"})
+                                                                        ^
+SyntaxError: invalid syntax
+[2018-05-15 18:42:45 +0000] [1461] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 20
+    CORS(app, resources={r"/*": {"origins": "http://survey.tryperf.com"})
+                                                                        ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 151, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-05-15 18:42:45 +0000] [1461] [INFO] Worker exiting (pid: 1461)
+[2018-05-15 18:46:06 +0000] [1664] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:46:06 +0000] [1664] [INFO] Listening at: http://127.0.0.1:8000 (1664)
+[2018-05-15 18:46:06 +0000] [1664] [INFO] Using worker: sync
+[2018-05-15 18:46:06 +0000] [1667] [INFO] Booting worker with pid: 1667
+[2018-05-15 18:46:06 +0000] [1668] [INFO] Booting worker with pid: 1668
+[2018-05-15 18:46:06 +0000] [1669] [INFO] Booting worker with pid: 1669
+[2018-05-15 18:46:21 +0000] [1664] [INFO] Handling signal: int
+[2018-05-15 18:46:21 +0000] [1667] [INFO] Worker exiting (pid: 1667)
+[2018-05-15 18:46:21 +0000] [1669] [INFO] Worker exiting (pid: 1669)
+[2018-05-15 18:46:21 +0000] [1664] [INFO] Shutting down: Master
+[2018-05-15 18:46:24 +0000] [1673] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 18:46:24 +0000] [1673] [INFO] Listening at: http://127.0.0.1:8000 (1673)
+[2018-05-15 18:46:24 +0000] [1673] [INFO] Using worker: sync
+[2018-05-15 18:46:24 +0000] [1676] [INFO] Booting worker with pid: 1676
+[2018-05-15 18:46:24 +0000] [1677] [INFO] Booting worker with pid: 1677
+[2018-05-15 18:46:24 +0000] [1678] [INFO] Booting worker with pid: 1678
+[2018-05-16 04:22:23 +0000] [1673] [INFO] Handling signal: term
+[2018-05-16 04:22:23 +0000] [1677] [INFO] Worker exiting (pid: 1677)
+[2018-05-16 04:22:23 +0000] [1676] [INFO] Worker exiting (pid: 1676)
+[2018-05-16 04:22:23 +0000] [1678] [INFO] Worker exiting (pid: 1678)
+[2018-05-16 04:22:23 +0000] [1673] [INFO] Shutting down: Master
+[2018-05-15 23:22:31 -0500] [2247] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 23:22:31 -0500] [2247] [INFO] Listening at: http://127.0.0.1:8000 (2247)
+[2018-05-15 23:22:31 -0500] [2247] [INFO] Using worker: sync
+[2018-05-15 23:22:31 -0500] [2250] [INFO] Booting worker with pid: 2250
+[2018-05-15 23:22:31 -0500] [2251] [INFO] Booting worker with pid: 2251
+[2018-05-15 23:22:31 -0500] [2252] [INFO] Booting worker with pid: 2252
+[2018-05-15 23:25:18 -0500] [2247] [INFO] Handling signal: term
+[2018-05-15 23:25:18 -0500] [2250] [INFO] Worker exiting (pid: 2250)
+[2018-05-15 23:25:18 -0500] [2251] [INFO] Worker exiting (pid: 2251)
+[2018-05-15 23:25:18 -0500] [2252] [INFO] Worker exiting (pid: 2252)
+[2018-05-15 23:25:18 -0500] [2247] [INFO] Shutting down: Master
+[2018-05-15 23:25:34 -0500] [2300] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 23:25:34 -0500] [2300] [INFO] Listening at: http://127.0.0.1:8000 (2300)
+[2018-05-15 23:25:34 -0500] [2300] [INFO] Using worker: sync
+[2018-05-15 23:25:34 -0500] [2303] [INFO] Booting worker with pid: 2303
+[2018-05-15 23:25:34 -0500] [2304] [INFO] Booting worker with pid: 2304
+[2018-05-15 23:25:34 -0500] [2305] [INFO] Booting worker with pid: 2305
+[2018-05-15 23:25:35 -0500] [2303] [ERROR] inconsistent use of tabs and spaces in indentation (notbought.py, line 19)
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 10, in <module>
+    from resources.notbought import NotBought
+  File "/home/mark/perf_back/resources/notbought.py", line 3, in <module>
+    from controllers.notbought import NotBoughtController
+  File "/home/mark/perf_back/controllers/notbought.py", line 1, in <module>
+    from models.notbought import NotBoughtModel
+  File "/home/mark/perf_back/models/notbought.py", line 19
+    self.date_created = datetime.now()
+                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+[2018-05-15 23:25:35 -0500] [2303] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 10, in <module>
+    from resources.notbought import NotBought
+  File "/home/mark/perf_back/resources/notbought.py", line 3, in <module>
+    from controllers.notbought import NotBoughtController
+  File "/home/mark/perf_back/controllers/notbought.py", line 1, in <module>
+    from models.notbought import NotBoughtModel
+  File "/home/mark/perf_back/models/notbought.py", line 19
+    self.date_created = datetime.now()
+                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 151, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-05-15 23:25:35 -0500] [2303] [INFO] Worker exiting (pid: 2303)
+[2018-05-15 23:25:35 -0500] [2304] [ERROR] inconsistent use of tabs and spaces in indentation (notbought.py, line 19)
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 10, in <module>
+    from resources.notbought import NotBought
+  File "/home/mark/perf_back/resources/notbought.py", line 3, in <module>
+    from controllers.notbought import NotBoughtController
+  File "/home/mark/perf_back/controllers/notbought.py", line 1, in <module>
+    from models.notbought import NotBoughtModel
+  File "/home/mark/perf_back/models/notbought.py", line 19
+    self.date_created = datetime.now()
+                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+[2018-05-15 23:25:35 -0500] [2304] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 10, in <module>
+    from resources.notbought import NotBought
+  File "/home/mark/perf_back/resources/notbought.py", line 3, in <module>
+    from controllers.notbought import NotBoughtController
+  File "/home/mark/perf_back/controllers/notbought.py", line 1, in <module>
+    from models.notbought import NotBoughtModel
+  File "/home/mark/perf_back/models/notbought.py", line 19
+    self.date_created = datetime.now()
+                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 151, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-05-15 23:25:35 -0500] [2304] [INFO] Worker exiting (pid: 2304)
+[2018-05-15 23:25:35 -0500] [2305] [ERROR] inconsistent use of tabs and spaces in indentation (notbought.py, line 19)
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 10, in <module>
+    from resources.notbought import NotBought
+  File "/home/mark/perf_back/resources/notbought.py", line 3, in <module>
+    from controllers.notbought import NotBoughtController
+  File "/home/mark/perf_back/controllers/notbought.py", line 1, in <module>
+    from models.notbought import NotBoughtModel
+  File "/home/mark/perf_back/models/notbought.py", line 19
+    self.date_created = datetime.now()
+                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+[2018-05-15 23:25:35 -0500] [2305] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/mark/perf_back/run.py", line 1, in <module>
+    from app import app
+  File "/home/mark/perf_back/app.py", line 10, in <module>
+    from resources.notbought import NotBought
+  File "/home/mark/perf_back/resources/notbought.py", line 3, in <module>
+    from controllers.notbought import NotBoughtController
+  File "/home/mark/perf_back/controllers/notbought.py", line 1, in <module>
+    from models.notbought import NotBoughtModel
+  File "/home/mark/perf_back/models/notbought.py", line 19
+    self.date_created = datetime.now()
+                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/gunicorn/workers/base.py", line 151, in load_wsgi
+    self.reloader.add_extra_file(exc_val.filename)
+AttributeError: 'NoneType' object has no attribute 'add_extra_file'
+[2018-05-15 23:25:35 -0500] [2305] [INFO] Worker exiting (pid: 2305)
+[2018-05-15 23:25:35 -0500] [2300] [INFO] Shutting down: Master
+[2018-05-15 23:25:35 -0500] [2300] [INFO] Reason: Worker failed to boot.
+[2018-05-15 23:29:33 -0500] [2451] [INFO] Starting gunicorn 19.8.1
+[2018-05-15 23:29:33 -0500] [2451] [INFO] Listening at: http://127.0.0.1:8000 (2451)
+[2018-05-15 23:29:33 -0500] [2451] [INFO] Using worker: sync
+[2018-05-15 23:29:33 -0500] [2454] [INFO] Booting worker with pid: 2454
+[2018-05-15 23:29:33 -0500] [2455] [INFO] Booting worker with pid: 2455
+[2018-05-15 23:29:33 -0500] [2456] [INFO] Booting worker with pid: 2456
+[2018-05-16 00:01:16 -0500] [7956] [INFO] Booting worker with pid: 7956
+[2018-05-16 00:01:16 -0500] [7957] [INFO] Booting worker with pid: 7957
+[2018-05-16 00:01:16 -0500] [7958] [INFO] Booting worker with pid: 7958
+[2018-05-16 00:01:16 -0500] [2451] [INFO] Handling signal: hup
+[2018-05-16 00:01:16 -0500] [2451] [INFO] Hang up: Master
+[2018-05-16 00:01:16 -0500] [7959] [INFO] Booting worker with pid: 7959
+[2018-05-16 00:01:16 -0500] [7960] [INFO] Booting worker with pid: 7960
+[2018-05-16 00:01:16 -0500] [7961] [INFO] Booting worker with pid: 7961
+[2018-05-16 00:01:17 -0500] [7956] [INFO] Worker exiting (pid: 7956)
+[2018-05-16 00:01:18 -0500] [7957] [INFO] Worker exiting (pid: 7957)
+[2018-05-16 00:01:18 -0500] [7958] [INFO] Worker exiting (pid: 7958)
+[2018-05-16 00:01:49 +0000] [9038] [INFO] Starting gunicorn 19.4.5
+[2018-05-16 00:01:49 +0000] [9038] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-16 00:01:49 +0000] [9038] [ERROR] Retrying in 1 second.
+[2018-05-16 00:01:50 +0000] [9038] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-16 00:01:50 +0000] [9038] [ERROR] Retrying in 1 second.
+[2018-05-16 00:01:51 +0000] [9038] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-16 00:01:51 +0000] [9038] [ERROR] Retrying in 1 second.
+[2018-05-16 00:01:52 +0000] [9038] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-16 00:01:52 +0000] [9038] [ERROR] Retrying in 1 second.
+[2018-05-16 00:01:53 +0000] [9038] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-16 00:01:53 +0000] [9038] [ERROR] Retrying in 1 second.
+[2018-05-16 00:01:54 +0000] [9038] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-16 00:04:36 -0500] [2451] [INFO] Handling signal: term
+[2018-05-16 00:04:36 -0500] [7959] [INFO] Worker exiting (pid: 7959)
+[2018-05-16 00:04:36 -0500] [7960] [INFO] Worker exiting (pid: 7960)
+[2018-05-16 00:04:36 -0500] [7961] [INFO] Worker exiting (pid: 7961)
+[2018-05-16 00:04:36 -0500] [2451] [INFO] Shutting down: Master
+[2018-05-16 00:18:34 -0500] [9810] [INFO] Starting gunicorn 19.8.1
+[2018-05-16 00:18:34 -0500] [9810] [INFO] Listening at: http://127.0.0.1:8000 (9810)
+[2018-05-16 00:18:34 -0500] [9810] [INFO] Using worker: sync
+[2018-05-16 00:18:34 -0500] [9813] [INFO] Booting worker with pid: 9813
+[2018-05-16 00:18:34 -0500] [9814] [INFO] Booting worker with pid: 9814
+[2018-05-16 00:18:34 -0500] [9815] [INFO] Booting worker with pid: 9815
+[2018-05-17 16:43:48,639] ERROR in app: Exception on /card/all [GET]
+Traceback (most recent call last):
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask_restful/__init__.py", line 480, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask/views.py", line 84, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/mark/perf_back/env/lib/python3.6/site-packages/flask_restful/__init__.py", line 595, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/mark/perf_back/resources/card.py", line 57, in get
+    error_message, status, response = CardController.get_card(mode)
+  File "/home/mark/perf_back/controllers/card.py", line 40, in get_card
+    if result[0] is None:
+IndexError: list index out of range
+[2018-05-20 22:25:59 -0500] [24001] [INFO] Starting gunicorn 19.8.1
+[2018-05-20 22:25:59 -0500] [24001] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-20 22:25:59 -0500] [24001] [ERROR] Retrying in 1 second.
+[2018-05-20 22:26:00 -0500] [24001] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-20 22:26:00 -0500] [24001] [ERROR] Retrying in 1 second.
+[2018-05-20 22:26:01 -0500] [24001] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-20 22:26:01 -0500] [24001] [ERROR] Retrying in 1 second.
+[2018-05-20 22:26:02 -0500] [24001] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-20 22:26:02 -0500] [24001] [ERROR] Retrying in 1 second.
+[2018-05-20 22:26:03 -0500] [24001] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-20 22:26:03 -0500] [24001] [ERROR] Retrying in 1 second.
+[2018-05-20 22:26:04 -0500] [24001] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-20 22:28:52 -0500] [9810] [INFO] Handling signal: term
+[2018-05-20 22:28:52 -0500] [9813] [INFO] Worker exiting (pid: 9813)
+[2018-05-20 22:28:52 -0500] [9814] [INFO] Worker exiting (pid: 9814)
+[2018-05-20 22:28:52 -0500] [9815] [INFO] Worker exiting (pid: 9815)
+[2018-05-20 22:28:52 -0500] [9810] [INFO] Shutting down: Master
+[2018-05-20 22:30:39 -0500] [24076] [INFO] Starting gunicorn 19.8.1
+[2018-05-20 22:30:39 -0500] [24076] [INFO] Listening at: http://127.0.0.1:8000 (24076)
+[2018-05-20 22:30:39 -0500] [24076] [INFO] Using worker: sync
+[2018-05-20 22:30:39 -0500] [24079] [INFO] Booting worker with pid: 24079
+[2018-05-20 22:30:39 -0500] [24080] [INFO] Booting worker with pid: 24080
+[2018-05-20 22:30:39 -0500] [24081] [INFO] Booting worker with pid: 24081
+[2018-05-20 22:30:41 -0500] [24076] [INFO] Handling signal: int
+[2018-05-20 22:30:41 -0500] [24079] [INFO] Worker exiting (pid: 24079)
+[2018-05-20 22:30:41 -0500] [24080] [INFO] Worker exiting (pid: 24080)
+[2018-05-20 22:30:41 -0500] [24076] [INFO] Shutting down: Master
+[2018-05-20 22:30:45 -0500] [24085] [INFO] Starting gunicorn 19.8.1
+[2018-05-20 22:30:45 -0500] [24085] [INFO] Listening at: http://127.0.0.1:8000 (24085)
+[2018-05-20 22:30:45 -0500] [24085] [INFO] Using worker: sync
+[2018-05-20 22:30:45 -0500] [24088] [INFO] Booting worker with pid: 24088
+[2018-05-20 22:30:45 -0500] [24089] [INFO] Booting worker with pid: 24089
+[2018-05-20 22:30:45 -0500] [24092] [INFO] Booting worker with pid: 24092
+[2018-05-20 22:40:58 -0500] [24085] [INFO] Handling signal: term
+[2018-05-20 22:40:58 -0500] [24088] [INFO] Worker exiting (pid: 24088)
+[2018-05-20 22:40:58 -0500] [24089] [INFO] Worker exiting (pid: 24089)
+[2018-05-20 22:40:58 -0500] [24092] [INFO] Worker exiting (pid: 24092)
+[2018-05-20 22:40:58 -0500] [24085] [INFO] Shutting down: Master
+[2018-05-20 22:41:08 -0500] [24205] [INFO] Starting gunicorn 19.8.1
+[2018-05-20 22:41:08 -0500] [24205] [INFO] Listening at: http://127.0.0.1:8000 (24205)
+[2018-05-20 22:41:08 -0500] [24205] [INFO] Using worker: sync
+[2018-05-20 22:41:08 -0500] [24208] [INFO] Booting worker with pid: 24208
+[2018-05-20 22:41:08 -0500] [24209] [INFO] Booting worker with pid: 24209
+[2018-05-20 22:41:08 -0500] [24210] [INFO] Booting worker with pid: 24210
+[2018-05-20 22:41:12 -0500] [24205] [INFO] Handling signal: int
+[2018-05-20 22:41:12 -0500] [24208] [INFO] Worker exiting (pid: 24208)
+[2018-05-20 22:41:12 -0500] [24209] [INFO] Worker exiting (pid: 24209)
+[2018-05-20 22:41:12 -0500] [24205] [INFO] Shutting down: Master
+[2018-05-20 22:41:17 -0500] [24215] [INFO] Starting gunicorn 19.8.1
+[2018-05-20 22:41:17 -0500] [24215] [INFO] Listening at: http://127.0.0.1:8000 (24215)
+[2018-05-20 22:41:17 -0500] [24215] [INFO] Using worker: sync
+[2018-05-20 22:41:17 -0500] [24218] [INFO] Booting worker with pid: 24218
+[2018-05-20 22:41:17 -0500] [24219] [INFO] Booting worker with pid: 24219
+[2018-05-20 22:41:17 -0500] [24220] [INFO] Booting worker with pid: 24220
+[2018-05-20 22:41:32 -0500] [24215] [INFO] Handling signal: term
+[2018-05-20 22:41:32 -0500] [24218] [INFO] Worker exiting (pid: 24218)
+[2018-05-20 22:41:32 -0500] [24220] [INFO] Worker exiting (pid: 24220)
+[2018-05-20 22:41:32 -0500] [24219] [INFO] Worker exiting (pid: 24219)
+[2018-05-20 22:41:32 -0500] [24215] [INFO] Shutting down: Master
+[2018-05-20 22:41:54 -0500] [24236] [INFO] Starting gunicorn 19.8.1
+[2018-05-20 22:41:54 -0500] [24236] [INFO] Listening at: http://127.0.0.1:8000 (24236)
+[2018-05-20 22:41:54 -0500] [24236] [INFO] Using worker: sync
+[2018-05-20 22:41:54 -0500] [24239] [INFO] Booting worker with pid: 24239
+[2018-05-20 22:41:54 -0500] [24240] [INFO] Booting worker with pid: 24240
+[2018-05-20 22:41:54 -0500] [24241] [INFO] Booting worker with pid: 24241
