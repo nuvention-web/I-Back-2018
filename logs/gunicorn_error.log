@@ -734,3 +734,68 @@ Traceback (most recent call last):
   File "/home/mark/perf_back/controllers/card.py", line 40, in get_card
     if result[0] is None:
 IndexError: list index out of range
+[2018-05-20 22:25:59 -0500] [24001] [INFO] Starting gunicorn 19.8.1
+[2018-05-20 22:25:59 -0500] [24001] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-20 22:25:59 -0500] [24001] [ERROR] Retrying in 1 second.
+[2018-05-20 22:26:00 -0500] [24001] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-20 22:26:00 -0500] [24001] [ERROR] Retrying in 1 second.
+[2018-05-20 22:26:01 -0500] [24001] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-20 22:26:01 -0500] [24001] [ERROR] Retrying in 1 second.
+[2018-05-20 22:26:02 -0500] [24001] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-20 22:26:02 -0500] [24001] [ERROR] Retrying in 1 second.
+[2018-05-20 22:26:03 -0500] [24001] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2018-05-20 22:26:03 -0500] [24001] [ERROR] Retrying in 1 second.
+[2018-05-20 22:26:04 -0500] [24001] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2018-05-20 22:28:52 -0500] [9810] [INFO] Handling signal: term
+[2018-05-20 22:28:52 -0500] [9813] [INFO] Worker exiting (pid: 9813)
+[2018-05-20 22:28:52 -0500] [9814] [INFO] Worker exiting (pid: 9814)
+[2018-05-20 22:28:52 -0500] [9815] [INFO] Worker exiting (pid: 9815)
+[2018-05-20 22:28:52 -0500] [9810] [INFO] Shutting down: Master
+[2018-05-20 22:30:39 -0500] [24076] [INFO] Starting gunicorn 19.8.1
+[2018-05-20 22:30:39 -0500] [24076] [INFO] Listening at: http://127.0.0.1:8000 (24076)
+[2018-05-20 22:30:39 -0500] [24076] [INFO] Using worker: sync
+[2018-05-20 22:30:39 -0500] [24079] [INFO] Booting worker with pid: 24079
+[2018-05-20 22:30:39 -0500] [24080] [INFO] Booting worker with pid: 24080
+[2018-05-20 22:30:39 -0500] [24081] [INFO] Booting worker with pid: 24081
+[2018-05-20 22:30:41 -0500] [24076] [INFO] Handling signal: int
+[2018-05-20 22:30:41 -0500] [24079] [INFO] Worker exiting (pid: 24079)
+[2018-05-20 22:30:41 -0500] [24080] [INFO] Worker exiting (pid: 24080)
+[2018-05-20 22:30:41 -0500] [24076] [INFO] Shutting down: Master
+[2018-05-20 22:30:45 -0500] [24085] [INFO] Starting gunicorn 19.8.1
+[2018-05-20 22:30:45 -0500] [24085] [INFO] Listening at: http://127.0.0.1:8000 (24085)
+[2018-05-20 22:30:45 -0500] [24085] [INFO] Using worker: sync
+[2018-05-20 22:30:45 -0500] [24088] [INFO] Booting worker with pid: 24088
+[2018-05-20 22:30:45 -0500] [24089] [INFO] Booting worker with pid: 24089
+[2018-05-20 22:30:45 -0500] [24092] [INFO] Booting worker with pid: 24092
+[2018-05-20 22:40:58 -0500] [24085] [INFO] Handling signal: term
+[2018-05-20 22:40:58 -0500] [24088] [INFO] Worker exiting (pid: 24088)
+[2018-05-20 22:40:58 -0500] [24089] [INFO] Worker exiting (pid: 24089)
+[2018-05-20 22:40:58 -0500] [24092] [INFO] Worker exiting (pid: 24092)
+[2018-05-20 22:40:58 -0500] [24085] [INFO] Shutting down: Master
+[2018-05-20 22:41:08 -0500] [24205] [INFO] Starting gunicorn 19.8.1
+[2018-05-20 22:41:08 -0500] [24205] [INFO] Listening at: http://127.0.0.1:8000 (24205)
+[2018-05-20 22:41:08 -0500] [24205] [INFO] Using worker: sync
+[2018-05-20 22:41:08 -0500] [24208] [INFO] Booting worker with pid: 24208
+[2018-05-20 22:41:08 -0500] [24209] [INFO] Booting worker with pid: 24209
+[2018-05-20 22:41:08 -0500] [24210] [INFO] Booting worker with pid: 24210
+[2018-05-20 22:41:12 -0500] [24205] [INFO] Handling signal: int
+[2018-05-20 22:41:12 -0500] [24208] [INFO] Worker exiting (pid: 24208)
+[2018-05-20 22:41:12 -0500] [24209] [INFO] Worker exiting (pid: 24209)
+[2018-05-20 22:41:12 -0500] [24205] [INFO] Shutting down: Master
+[2018-05-20 22:41:17 -0500] [24215] [INFO] Starting gunicorn 19.8.1
+[2018-05-20 22:41:17 -0500] [24215] [INFO] Listening at: http://127.0.0.1:8000 (24215)
+[2018-05-20 22:41:17 -0500] [24215] [INFO] Using worker: sync
+[2018-05-20 22:41:17 -0500] [24218] [INFO] Booting worker with pid: 24218
+[2018-05-20 22:41:17 -0500] [24219] [INFO] Booting worker with pid: 24219
+[2018-05-20 22:41:17 -0500] [24220] [INFO] Booting worker with pid: 24220
+[2018-05-20 22:41:32 -0500] [24215] [INFO] Handling signal: term
+[2018-05-20 22:41:32 -0500] [24218] [INFO] Worker exiting (pid: 24218)
+[2018-05-20 22:41:32 -0500] [24220] [INFO] Worker exiting (pid: 24220)
+[2018-05-20 22:41:32 -0500] [24219] [INFO] Worker exiting (pid: 24219)
+[2018-05-20 22:41:32 -0500] [24215] [INFO] Shutting down: Master
+[2018-05-20 22:41:54 -0500] [24236] [INFO] Starting gunicorn 19.8.1
+[2018-05-20 22:41:54 -0500] [24236] [INFO] Listening at: http://127.0.0.1:8000 (24236)
+[2018-05-20 22:41:54 -0500] [24236] [INFO] Using worker: sync
+[2018-05-20 22:41:54 -0500] [24239] [INFO] Booting worker with pid: 24239
+[2018-05-20 22:41:54 -0500] [24240] [INFO] Booting worker with pid: 24240
+[2018-05-20 22:41:54 -0500] [24241] [INFO] Booting worker with pid: 24241
