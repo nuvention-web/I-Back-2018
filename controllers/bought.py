@@ -3,7 +3,7 @@ from models.bought import BoughtModel
 class BoughtController():
 
     @classmethod
-    def make_bought(cls, q1, q2, q3, name, email):
+    def make_bought(cls, name, email, quiz_id, q1, q2, q3):
         try: 
             new_bought = BoughtModel(name, email, q1, q2, q3)
 

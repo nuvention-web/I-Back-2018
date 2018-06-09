@@ -6,15 +6,17 @@ class BoughtModel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     date_created = db.Column(db.DateTime)
+    quiz_id = db.Column(db.Integer)
     name = db.Column(db.String(100))
     email = db.Column(db.String(255))
     q1 = db.Column(db.String(100))
     q2 = db.Column(db.String(100))
     q3 = db.Column(db.String(100))
 
-    def __init__(self, name, email, q1, q2, q3):
+    def __init__(self, name, email, quiz_id, q1, q2, q3):
         self.name = name
         self.email = email
+        self.quiz_id = quiz_id
         self.q1 = q1
         self.q2 = q2
         self.q3 = q3
@@ -24,6 +26,7 @@ class BoughtModel(db.Model):
         return {
                     "name": self.name,
                     "email": self.email,
+                    "quiz_id": self.quiz_id,
                     "created": self.date_created.strftime("%Y-%m-%d %H:%M:%S"),
                     "q1": self.q1,
                     "q2": self.q2,
