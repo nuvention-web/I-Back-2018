@@ -48,7 +48,7 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(new_card.status_code, 201)
         new_card = helper.make_card(self, 'name3', 'accord3', 'image3', 'vid3', 0, 'desc3')
         self.assertEqual(new_card.status_code, 201)
-        new_notbought = helper.make_notbought(self, 'name1', 'name2', 'name3', 'san')
+        new_notbought = helper.make_notbought(self, 'name1', 'name2', 'name3', 'san', 0)
         get_notbought = helper.get_notbought(self, '1')
         self.assertEqual(get_notbought.status_code, 200)
         # delete notbought by id(?)
@@ -66,7 +66,7 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(new_card.status_code, 201)
         ###### card prep complete, now checking notbought
         # make_notbought q1(card name), q2, q3, name 
-        new_notbought = helper.make_notbought(self, 'name1', 'name2', 'name3', 'san')
+        new_notbought = helper.make_notbought(self, 'name1', 'name2', 'name3', 'san', 0)
         helper.print_error(new_notbought, 201)
         # check if the card arrives
         resp_data = json.loads(new_notbought.data.decode())

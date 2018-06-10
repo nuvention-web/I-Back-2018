@@ -5,7 +5,7 @@ class BoughtController():
     @classmethod
     def make_bought(cls, name, email, quiz_id, q1, q2, q3):
         try: 
-            new_bought = BoughtModel(name, email, q1, q2, q3)
+            new_bought = BoughtModel(name, email, quiz_id, q1, q2, q3)
 
         except:
             return "Error creating a bought response", 500, None

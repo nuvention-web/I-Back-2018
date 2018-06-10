@@ -6,9 +6,9 @@ import sys
 class NotBoughtController():
 
     @classmethod
-    def make_notbought(cls, q1, q2, q3, name):
+    def make_notbought(cls, name, quiz_id, q1, q2, q3):
         try: 
-            new_notbought = NotBoughtModel(name, q1, q2, q3)
+            new_notbought = NotBoughtModel(name, quiz_id, q1, q2, q3)
         except:
             return "Error creating a notbought response", 500, None
         try:

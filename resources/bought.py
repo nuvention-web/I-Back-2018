@@ -36,9 +36,9 @@ class Bought(Resource):
 
     def post(self, mode):
         data = Bought.parser.parse_args()
+        quiz_id = int(mode)
 
-        quiz_id = str(mode)
-        error_message, status, response = BoughtController.make_bought(data['q1'], data['q2'], data['q3'], data['name'], data['email'])
+        error_message, status, response = BoughtController.make_bought(data['name'], data['email'], quiz_id, data['q1'], data['q2'], data['q3'])
 
         if error_message:
             return {"error_message": error_message}, status

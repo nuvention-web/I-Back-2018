@@ -31,9 +31,9 @@ class helper():
             print(resp_json)
 
     @classmethod
-    def make_notbought(cls, inst, q1, q2, q3, name):
+    def make_notbought(cls, inst, q1, q2, q3, name, quiz_id):
         return inst.app.post(
-                    '/notbought/make',
+                    '/notbought/' + str(quiz_id),
                     data = dict(q1=q1, q2=q2, q3=q3, name=name)
                 )
 
@@ -50,9 +50,9 @@ class helper():
                 )
              
     @classmethod
-    def make_bought(cls, inst, q1, q2, q3, email, name):
+    def make_bought(cls, inst, q1, q2, q3, email, name, quiz_id):
         return inst.app.post(
-                    '/bought/make',
+                    '/bought/' + str(quiz_id),
                     data = dict(q1=q1, q2=q2, q3=q3, name=name, email=email)
                )
 

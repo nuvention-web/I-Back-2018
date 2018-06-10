@@ -48,7 +48,7 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(new_card.status_code, 201)
         new_card = helper.make_card(self, 'name3', 'accord3', 'image3', 'vid3', 0, 'desc3')
         self.assertEqual(new_card.status_code, 201)
-        new_bought = helper.make_bought(self, 'name1', 'name2', 'name3', 'san_email', 'san')
+        new_bought = helper.make_bought(self, 'name1', 'name2', 'name3', 'san_email', 'san', 0)
         self.assertEqual(new_bought.status_code, 201)
         get_bought = helper.get_bought(self, '1')
         self.assertEqual(get_bought.status_code, 200)
@@ -70,7 +70,7 @@ class BasicTests(unittest.TestCase):
 
         ###### card prep complete, now checking bought
         # make_bought q1(card name), q2, q3, name 
-        new_bought = helper.make_bought(self, 'name1', 'name2', 'name3', 'san_email', 'san')
+        new_bought = helper.make_bought(self, 'name1', 'name2', 'name3', 'san_email', 'san', 0)
         helper.print_error(new_bought, 201)
         # check if the bought was made
         self.assertEqual(new_bought.status_code, 201)

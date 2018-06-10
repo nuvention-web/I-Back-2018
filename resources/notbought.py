@@ -33,8 +33,9 @@ class NotBought(Resource):
 
     def post(self, mode):
         data = NotBought.parser.parse_args()
+        quiz_id = int(mode)
 
-        error_message, status, response = NotBoughtController.make_notbought(data['q1'], data['q2'], data['q3'], data['name'])
+        error_message, status, response = NotBoughtController.make_notbought(data['name'], quiz_id, data['q1'], data['q2'], data['q3'])
 
         if error_message:
             return {"error_message": error_message}, status
