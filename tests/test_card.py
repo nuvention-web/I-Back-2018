@@ -77,13 +77,24 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(new_card_data['response'][0]['name'], 'name')
         self.assertEqual(new_card_data['response'][1]['name'], 'name1')
 
-
     def test_card_edit(self):
         # create card
         new_card = helper.make_card(self, 'name', 'accord', 'image', 'video', '0', 'desc')
         self.assertEqual(new_card.status_code, 201)        
         # edit card
-        # edit_card = helper.edit_card(self, 
+        edit_card = helper.edit_card(self, 1, 'name1', 'accord1', 'image1', 'video', '0', 'desc')
+        helper.print_error(edit_card, 200)
+        self.assertEqual(edit_card.status_code, 200)
+        # get old card by name -should not work
+        get_card = helper.get_card(self, 'name') 
+        self.assertEqual(get_card.status_code, 400)
+        # get new card by name
+        get_card = helper.get_card(self, 'name1') 
+        self.assertEqual(get_card.status_code, 200)
+        edited_card_data = json.loads(get_card.data.decode())
+        self.assertEqual('name1', edited_card_data['response'][0]['name'])
+        self.assertEqual('accord1', edited_card_data['response'][0]['accord'])
+        self.assertEqual('image1', edited_card_data['response'][0]['image_lnk'])
 
     def test_duplicate_card_creation(self):
         # create card

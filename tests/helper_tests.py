@@ -21,8 +21,12 @@ class helper():
                     '/card/' + name,
                 )
     
-    # @classmethod
-    # def edit_card(cls, inst, )
+    @classmethod
+    def edit_card(cls, inst, card_id, name, accord, image_lnk, vid_lnk, start_time, description):
+        return inst.app.put(
+                    '/card/' + str(card_id),
+                    data = dict(name=name, accord=accord, image_lnk=image_lnk, vid_lnk=vid_lnk, start_time=start_time, description=description)
+                )
 
     @classmethod
     def print_error(cls, resp, status):

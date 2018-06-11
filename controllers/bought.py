@@ -48,4 +48,3 @@ class BoughtController():
         
         return "", 200, None
         
-

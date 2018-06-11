@@ -23,6 +23,7 @@ class CardModel(db.Model):
 
     def json(self):
         return {
+                    "id": self.id,
                     "name": self.name,
                     "accord": self.accord,
                     "image_lnk": self.image_lnk,

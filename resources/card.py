@@ -61,7 +61,6 @@ class Card(Resource):
 
         return {"response": list(map(lambda x: x.json_debug() if x else None, response))}, status
 
-
     def delete(self, mode):
         
         error_message, status, response = CardController.delete_card(mode)
@@ -70,4 +69,15 @@ class Card(Resource):
             return {"error_message": error_message}, status
 
         return {"response": "Successfully deleted!"}, status
+
+    def put(self, mode):
+        data =  Card.parser.parse_args()
+        card_id = int(mode)
+
+        error_message, status, response = CardController.edit_card(card_id, data['name'], data['accord'], data['image_lnk'], data['vid_lnk'], data['start_time'], data['description'])
+
+        if error_message:
+            return {"error_message": error_message}, status
+
+        return {"response": "Successfully updated!", "card": response.json()}, status
 

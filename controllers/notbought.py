@@ -30,7 +30,6 @@ class NotBoughtController():
         result.append(CardModel.find_by_name(q1))
         result.append(CardModel.find_by_name(q2))
         result.append(CardModel.find_by_name(q3))
-        
         return result
 
     @classmethod

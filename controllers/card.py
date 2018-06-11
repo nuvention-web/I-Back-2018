@@ -55,12 +55,17 @@ class CardController():
 
         return "", 200, None
 
-
-
-
-            
-
-
-
-
+    @classmethod
+    def edit_card(cls, card_id, name, accord, image_lnk, vid_lnk, start_time, description):
+        wanted = CardModel.find_by_id(card_id)
+        if not wanted:
+            return "Card with that id doesn't exist", 400, None
+        wanted.name = name
+        wanted.accord = accord
+        wanted.image_lnk = image_lnk
+        wanted.vid_lnk = vid_lnk
+        wanted.start_time = start_time
+        wanted.description = description
+        wanted.save_to_db()
+        return "", 200, wanted
 
