@@ -24,7 +24,7 @@ CORS(app, resources={r"/*": {"origins": "http://tryperf.s3-website-us-east-1.ama
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    return 'Goodbye ADC!'
 
 api.add_resource(Card, '/card/<string:mode>')
 api.add_resource(NotBought, '/notbought/<string:mode>')
